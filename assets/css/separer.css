@@ -1,0 +1,31 @@
+.separer{
+
+    background: #fffaf1;
+    border: black 1px solid;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    
+}
+
+.separer:last-child{
+    margin-bottom: 48px;
+}
+
+h1{
+    text-align: center;
+    margin: 2rem 0 4rem 0;
+}
+
+.separer>button{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin: 1rem 0 1rem 0 ;
+    
+}

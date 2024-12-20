@@ -1,0 +1,22 @@
+/*********************HOME BODY*********************/
+
+#carousel{
+    height: 40vh;
+}
+
+.carousel-inner{
+    border-radius: 10px;
+}
+
+#home-text{
+    text-align: center;
+    background: #fffaf1;
+    border: black 1px solid;
+    border-radius: 10px;
+    margin-bottom: 48px;
+    
+}
+
+#home-text>p{
+    padding: 1rem;
+}

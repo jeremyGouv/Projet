@@ -1,0 +1,130 @@
+/*********************ADOPTER*********************/
+
+#burger_icon{
+    margin: 2rem 0.5rem 2rem 0;
+}
+
+#burger_icon_img{
+    margin-right: 0.5rem;
+}
+
+.filtres_hidden{
+    /* display: none; */
+    width: auto;
+    position: relative;
+    left: -40vh;
+    transition: 1s ease;
+    
+}
+.filtres{
+    
+    position: relative;
+    left: 0;
+    transition: 1s ease;    
+    
+}
+
+.row{
+    position: relative;
+
+}
+
+.filtres button, .filtres_hidden button{
+    font-weight: bold; 
+}
+.filtres h2, .filtres_hidden h2{
+    margin: 0;
+    border: 0;
+    margin: 0;
+}
+.filtres label, .filtres_hidden label{
+   font-weight: normal;
+   margin: 0;
+}
+
+.card{
+    width: 20rem;
+    margin: 0 1em 1em 0;
+    
+}
+
+.animaux_trouve{
+    padding: 1rem 0 0 3.5rem;
+    
+}
+
+/* #search_valid{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin-top: 1rem;
+} */
+
+/*********************FORMULAIRE*********************/
+
+.formulaire{
+    background-color: #fffaf1;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 2em;
+    margin: 48px 0 48px 0;
+    
+}
+
+.formulaire h1{
+    margin: 0 0 32px 0;
+}
+
+select{
+    background: #faf1e0;
+    width: 3rem;
+}
+
+form div, form fieldset{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+textarea{
+    background-color: #faf1e0;
+    border-radius: 10px;
+    border: none;
+}
+
+input{
+    background-color: #faf1e0;
+    border-radius: 10px;
+    height: 30px;
+    border: none;
+}
+
+form button{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin-top: 1rem;
+
+}
+
+form legend{
+    font-weight: bold;
+    font-size:x-large;
+}
+
+.radio, .checkbox{
+    align-self: flex-start;
+    margin-left: 1rem;
+}

@@ -1,0 +1,32 @@
+#search{
+    background: #FFFAF1;
+    border-radius: 10px;
+    border: black 1px solid;
+    padding: 0 0 1rem 1rem;
+    margin-top: 2rem;
+}
+#search>button{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.lieuTrouve{
+    background: #FFFAF1;
+    border-radius: 10px;
+    border: black 1px solid;
+    padding: 0 0 1rem 1rem;
+    margin-top: 2rem;
+}
+
+#map{
+    height: 500px;
+    width: 100%;
+    margin: 3rem 0 3rem 0;
+    z-index: 0;
+}
