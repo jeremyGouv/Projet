@@ -41,7 +41,7 @@ input{
     border: none;
 }
 
-form button{
+#dsubmit>input{
     width: 100px;
     height: 30px;
     text-align: center;
@@ -50,7 +50,6 @@ form button{
     border-radius: 20px;
     padding: 0;
     margin-top: 1rem;
-
 }
 
 form legend{

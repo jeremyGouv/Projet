@@ -1,60 +1,33 @@
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/adopter.css">
-        <title>Les Compagnons du Bonheur</title>
-    </head>
-    <body>
-        <header>
-    <!--------------------------------------------------------NAVBAR-------------------------------------------------------->
-            <nav class="navbar navbar-expand-lg text-black  fs-4">
-                <div class="container-fluid w-auto m-0">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <a href="/index.html"><img src="assets//img/logo.png" alt="logo du Site" id="logoSite"></a>
+<html lang="en">
 
-                <div class="collapse navbar-collapse justify-content-evenly" id="navbar">
-                    <ul class="navbar-nav ">
-                    <li class="nav-item p-2">
-                        <a class="nav-link"  href="/inscription.html">S'inscrire</a>
-                    </li>
-                    <li class="nav-item p-2">
-                        <a class="nav-link" href="/profil.html">Profil</a>
-                    </li>
-                    <li class="nav-item p-2">
-                        <a class="nav-link" href="/adopter.html">Adopter</a>
-                    </li>
-                    <li class="nav-item p-2">
-                        <a class="nav-link" href="/se separer.html">Se séparer</a>
-                    </li>
-                    <li class="nav-item p-2">
-                        <a class="nav-link" href="/les etablissements.html">Les établissements</a>
-                    </li>
-                    <li class="nav-item p-2">
-                        <a class="nav-link" href="/don.html">Dons</a>
-                    </li>
-                    </ul>
-                </div>
-            </nav>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/adopter.css" />
+    <title>Les Compagnons du Bonheur</title>
+</head>
 
-        </header>
+<body>
+    <?php include "templates/templateHeader.php"; ?>
 
-        <main>
+    <main>
 
-            <div id="burger_icon"><img src="/assets/img/burger_icon.svg" alt="burger icon" id="burger_icon_img">Filtres</div>
-            <div class="row d-lg-flex">
+        <div id="burger_icon"><img src="./assets/img/burger_icon.svg" alt="burger icon" id="burger_icon_img">Filtres</div>
+        <div class="container-fluid">
+            <div class="row ">
                 <div class="filtres_hidden">
                     <div class="accordion " id="accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Nom de l'établissements
+                                    Nom de l'établissements
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
@@ -66,7 +39,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Nom
+                                    Nom
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
@@ -78,7 +51,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Espèces
+                                    Espèces
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
@@ -137,64 +110,24 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <button type="submit" id="search_valid">Valider</button>
                     </div>
                 </div>
 
-                <div class="animaux_trouve p-lg0 col-lg-8 col-xl-9 d-lg-flex flex-lg-wrap"></div>
+                <div class="animaux_trouve offset-md-4 offset-lg-3 p-lg-0 col-lg-8 col-xl-9 d-lg-flex flex-lg-wrap"></div>
             </div>
+        </div>
+    </main>
 
-        </main>
+    <?php include "templates/templateFooter.php"; ?>
 
-<!--------------------------------------------------------FOOTER-------------------------------------------------------->  
-        
-        <footer>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/adopter.js"></script>
+</body>
 
-            <div id="list">
-                <ul>
-                    <a href="/adopter.html">
-                        <li>Adopter</li>
-                    </a>
-                    <a href="/se separer.html">
-                        <li>Se séparer</li>
-                    </a>
-                    <a href="/profil.html">
-                        <li>Profil</li>
-                    </a>
-                    <a href="/don.html">
-                        <li>Don</li>
-                    </a>
-                    <a href="/les etablissements.html">
-                        <li>Les établissements</li>
-                    </a>
-                </ul>
-            </div>
-
-            <div id="nomSite">
-                <h2>
-                    Les Compagnons du Bonheur
-                </h2>
-
-                <div id="mentions">
-                <a href="/mentions legales.html">
-                    <p>Mentions légales</p>
-                </a>
-                </div>
-            </div>
-                
-            
-            <div id="logo">
-                <div id="facebook"><a href="https://www.facebook.com/spaofficiel/"><img src="/assets/img/facebook.png" alt="logo facebook"></a></div>
-                <div id="x"><a href="https://x.com/SPA_Officiel"><img src="/assets/img/x.png" alt="logo X"></a></div>
-                <div id="instagram"><a href="https://www.instagram.com/la_spa/?hl=fr"><img src="/assets/img/instagram.png" alt="logo instagram"></a></div>
-                <div id="youtube"><a href="https://www.youtube.com/channel/UCHIbj4gZgIXThXRqeCMStrg"><img src="/assets/img/youtube.png" alt="logo youtube"></a></div>
-            </div>
-        </footer>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script src="assets/js/script.js"></script>
-        <script src="assets/js/adopter.js"></script>
-    </body>
 </html>

@@ -41,7 +41,7 @@ input{
     border: none;
 }
 
-form button{
+.dsubmit>input{
     width: 100px;
     height: 30px;
     text-align: center;
@@ -50,7 +50,6 @@ form button{
     border-radius: 20px;
     padding: 0;
     margin-top: 1rem;
-
 }
 
 form legend{
@@ -61,4 +60,11 @@ form legend{
 .radio, .checkbox{
     align-self: flex-start;
     margin-left: 1rem;
+}
+
+input:invalid{
+    border: red 1px solid;
+}
+input:valid{
+    border: green 1px solid;
 }

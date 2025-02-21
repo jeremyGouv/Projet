@@ -1,3 +1,27 @@
+let userStatus = document.cookie.split("=")[1];
+let link = document.querySelector("#profil");
+let disconnectBtn = '';
+const disconnectBtnHtml = '<button type="button" id="disconnect">Déconnecter</button>';
+
+console.log(userStatus);
+console.log(link);
+
+//////////////////////////////////////////////////////////////////////    LINK CHANGE ON NAVBAR    //////////////////////////////////////////////////////////////////////
+
+if (userStatus === "admin") {
+  link.href = "admin";
+  navbar.lastElementChild.lastElementChild.insertAdjacentHTML("afterbegin", disconnectBtnHtml);
+  disconnectBtn = document.querySelector("#disconnect");
+} else if (userStatus === "guest"){
+  link.href = "profil";
+  navbar.lastElementChild.lastElementChild.insertAdjacentHTML("afterbegin", disconnectBtnHtml);
+  disconnectBtn = document.querySelector("#disconnect");
+}else{
+  link.href = "connexion";
+}
+
+//////////////////////////////////////////////////////////////////////    MAP    //////////////////////////////////////////////////////////////////////
+
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 let lat = 48.852969;
 let lon = 2.349903;
@@ -19,4 +43,18 @@ window.onload = function () {
   // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
   initMap();
 };
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////    DECONNEXION    //////////////////////////////////////////////////////////////////////
+
+disconnectBtn.addEventListener("click", ()=>{
+    document.cookie = 'user=';
+    userStatus = document.cookie.split("=")[1];
+    
+    if (userStatus === "") {
+        link.href = "connexion";
+    }
+    
+    window.location.replace("index");
+    
+
+});

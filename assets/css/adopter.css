@@ -9,16 +9,14 @@
 }
 
 .filtres_hidden{
-    /* display: none; */
     width: auto;
     position: relative;
-    left: -40vh;
+    left: -42vh;
     transition: 1s ease;
     
 }
 .filtres{
-    
-    position: relative;
+    /* position: relative; */
     left: 0;
     transition: 1s ease;    
     
@@ -26,7 +24,7 @@
 
 .row{
     position: relative;
-
+    width: 100vw;
 }
 
 .filtres button, .filtres_hidden button{
@@ -53,16 +51,27 @@
     
 }
 
-/* #search_valid{
+#search_valid{
     width: 100px;
     height: 30px;
+    text-align: center;
+    background-color: #fffaf1;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#disconnect{
+    width: 160px;
+    height: 40px;
     text-align: center;
     background-color: #f5deb3;
     border: none;
     border-radius: 20px;
     padding: 0;
     margin-top: 1rem;
-} */
+}
 
 /*********************FORMULAIRE*********************/
 
@@ -127,4 +136,26 @@ form legend{
 .radio, .checkbox{
     align-self: flex-start;
     margin-left: 1rem;
+}
+
+
+@media screen and (min-width: 767px){
+    #burger_icon{
+        display: none;
+    }
+    
+    .filtres_hidden{
+        position: absolute;
+        left: 0;
+        margin-top: 100px;
+        transition: none;
+        padding: 0;
+        
+    }
+
+    .animaux_trouve{
+        margin-top: 100px;
+        
+    }
+
 }
