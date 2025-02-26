@@ -19,7 +19,7 @@
             <div class="formulaire">
                 <h1>Inscrivez-vous</h1>
                 <p>Pour créer un profil, veuillez vous inscrire.</p>
-                <form name="inscription" id="inscription" method="post" action="verifForm">
+                <form name="inscription" id="inscription" method="post" action="inscription">
                     <div id="dlastname">
                         <label for="lastname">Nom</label>
                         <input type="text" id="lastname" name="lastname" required>
@@ -30,14 +30,14 @@
                     </div>
                     <div id="dmail">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email"  title="test" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div id="dpassword">
                         <label for="password">Mot de passe</label>
                         <input type="password" id="password" name="password" pattern="(\d{1,n})([a-z]{1,n})([A-Z]{1,n}).{8,}" title="wrong password" required>
                     </div>
                     <div class="dsubmit">
-                        <input type="submit" id="submit" value="S'inscrire">
+                        <input type="submit" id="submit" name="subscribe" value="S'inscrire">
                     </div>
                 </form>
             </div>

@@ -18,11 +18,28 @@
         <div class="collapse navbar-collapse justify-content-evenly" id="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item p-2">
-                    <a class="nav-link" href="inscription">S'inscrire</a>
+                    <?php if (empty($_SESSION)) {
+                        echo '<a class="nav-link" href="inscription">S\'inscrire</a>';
+                    }
+                    ?>
+
                 </li>
                 <li class="nav-item p-2">
-                    <a class="nav-link" href="connexion" id="profil">Se connecter</a>
+                    <?php if (isset($_SESSION["id_role"])) {
+                        $link = ($_SESSION["id_role"] === 2) ? '<a class="nav-link" href="profil">Profil</a>' : '<a class="nav-link" href="adminUsers">Gestion utilisateurs</a>';
+                        echo $link;
+                    } else {
+                        echo '<a class="nav-link" href="connexion">Se connecter</a>';
+                    }
+                    ?>
                 </li>
+                <?php 
+                    if (isset($_SESSION["id_role"]) && $_SESSION["id_role"] === 1) {
+                       echo '<li class="nav-item p-2">
+                                <a class="nav-link" href="adminAnimals">Gestion animaux</a>
+                            </li>';
+                    } 
+                ?>
                 <li class="nav-item p-2">
                     <a class="nav-link" href="adopter">Adopter</a>
                 </li>
@@ -36,7 +53,10 @@
                     <a class="nav-link" href="don">Dons</a>
                 </li>
                 <li class="nav-item p-2">
-                    <!-- BOUTON DECONNECTER -->
+                    <?php if (!empty($_SESSION)) {
+                        echo '<a class="nav-link" href="deconnexion">Se deconnecter</a>';
+                    }
+                    ?>
                 </li>
             </ul>
         </div>

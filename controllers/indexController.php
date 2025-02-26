@@ -1,5 +1,8 @@
 <?php
+session_start();
 
-// require_once "templates/templateHeader.php";
+print_r($_SESSION);echo "<br>";
+
+
 include "views/index.php";
-// require_once "templates/templateFooter.php";
+

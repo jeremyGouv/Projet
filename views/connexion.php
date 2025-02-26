@@ -22,7 +22,7 @@
         <div class="container col-lg-3">
             <div class="formulaire">
                 <h1>Connexion</h1>
-                <form name="connexion" id="connexion" method="post" action="">
+                <form name="connexion" id="connexion" method="post" action="connexion">
                     <div>
                         <label for="mail">Email</label>
                         <input type="email" id="mail" name="mail" required>
@@ -44,7 +44,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/connexion.js"></script>
+    <!-- <script src="assets/js/connexion.js"></script> -->
 </body>
 
 </html>
