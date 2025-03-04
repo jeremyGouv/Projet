@@ -24,11 +24,13 @@ main{
 
 header{
     background-color: #e9c295;
-    
     position: sticky;
     top: 0;
     z-index: 1;
+    /* width: 100%; */
 }
+
+
 
 #logoSite{
     width: 121px;

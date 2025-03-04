@@ -28,7 +28,6 @@ if (isset($_POST["subscribe"]) && !empty($_POST["firstname"]) && !empty($_POST["
         // création d'un utilisateur et redirection vers la page d'accueil
         createUser($firstname, $lastname, $validatedEmail, $hashedPassword, $id_role);
 
-
         header("location:/");
     } else {
         echo "erreur";

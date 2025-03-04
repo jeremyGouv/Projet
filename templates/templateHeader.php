@@ -1,6 +1,6 @@
 <header>
     <!--------------------------------------------------------NAVBAR-------------------------------------------------------->
-    <nav class="navbar navbar-expand-lg text-black fs-4">
+    <nav class="navbar navbar-expand-lg m-0 p-0 text-black  fs-5">
         <div class="container-fluid w-auto m-0">
             <button
                 class="navbar-toggler"

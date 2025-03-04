@@ -1,0 +1,128 @@
+/*********************FORMULAIRE*********************/
+
+.formulaire{
+    background-color: #fffaf1;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 2em;
+    margin: 48px 0 48px 0;
+    
+}
+
+select{
+    background: #faf1e0;
+    width: 5rem;
+}
+
+label{
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+input{
+    background-color: #faf1e0;
+    margin: 0.5rem;
+    border-radius: 10px;
+    height: 30px;
+    border: none;
+}
+
+#dsubmit>input{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+#picture{
+    width: 100%;
+}
+
+/* ********************************************************************* */
+#table{
+    width: 100%;
+}
+
+#card{
+    width: 25rem;
+}
+#card p {
+    display: inline;
+}
+
+
+#formShowUser{
+    padding: 16px;
+}
+
+#formShowUser p{
+    margin: 0px;
+}
+
+#divTable{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+}
+
+#boutonGestion{
+    display: flex;
+    justify-content: center;
+}
+
+#disconnect{
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    background-color: #f5deb3;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+
+#info{
+    display: flex;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* input[type="submit"],input[type="button"] {
+    margin-top: 5px;
+    width: 10rem;
+} */
+
+input[type="file"]{
+    width: 100%;
+}
+
+#id_role, #id_user, #zip_code{
+    width: 2rem;
+}
+#phone{
+    width: 6rem;
+}
+#zip_code{
+    width: 5rem;
+}
+.inactive{
+    display: none !important;   
+    
+}
+
+

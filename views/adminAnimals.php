@@ -10,7 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/admin.css" />
+    <link rel="stylesheet" href="assets/css/adminAnimals.css" />
     <title>Les Compagnons du Bonheur</title>
 </head>
 
@@ -33,18 +33,33 @@
             <div class="row m-0 p-0 justify-content-center">
                 <div class="col-11 col-md-6 col-lg-7 m-0 p-0" id="boutonGestion">
                     <form method="post" action="adminAnimals">
-                        <input type="submit" value="Ajouter les animaux" name="addAnimal" id="addAnimal">
+                        <input type="submit" value="Ajouter un animal" name="addAnimal" id="addAnimal">
                         <input type="submit" value="Afficher les animaux" name="showAnimals" id="showAnimals">
+                        <input type="submit" value="Modifier les animaux" name="modifyAnimals" id="modifyAnimals">
                     </form>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-12 col-lg-12 col-xxl-12 flex-wrap" id="divTable">
+                <div class="col-12 flex-wrap" id="divTable">
                     <!-- Les animaux s'affiche ici -->
-                    <?php if (!empty($_POST["showUsers"])) {
-                        displayUsers($users);
-                    }
-                    ?>
+                    <div id="card">
+                        <?php
+                        if (!empty($_POST["showAnimals"])) {
+                            displayAnimal($animals);
+                        } elseif (!empty($_POST["addAnimal"])) {
+                            addAnimal();
+                        }
+                        ?>
+                    </div>
+                    <div id="table" class="inactive">
+                        <?php
+                        if (!empty($_POST["showAnimals"])) {
+                            displayAnimalTable();
+                        } elseif (!empty($_POST["addAnimal"])) {
+                            addAnimalTable();
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +73,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <!-- <script src="assets/js/adminUsers.js"></script> -->
+    <script src="assets/js/adminAnimals.js"></script>
 </body>
 
 </html>

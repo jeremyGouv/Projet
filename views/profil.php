@@ -30,25 +30,25 @@
 						</select>
 
 						<label for="lastname">Nom</label>
-						<input type="text" id="lastname" name="lastname" value=<?= $_SESSION["lastname"] ?>>
+						<input type="text" id="lastname" name="lastname" value=<?= $_SESSION["lastname"] ?> >
 
 						<label for="firstname">Prénom</label>
-						<input type="text" id="firstname" name="firstname" value=<?= $_SESSION["firstname"] ?>>
+						<input type="text" id="firstname" name="firstname" value=<?= $_SESSION["firstname"] ?> >
 
 						<label for="mail">Email</label>
-						<input type="mail" id="mail" name="mail" value=<?= $_SESSION["mail"] ?>>
-
+						<input type="mail" id="mail" name="mail" value=<?= $_SESSION["mail"] ?> >
+ 
 						<label for="phone">Téléphone</label>
-						<input type="tel" id="phone" name="phone" value=<?= $user["phone"] ?>>
+						<input type="tel" id="phone" name="phone" value='<?= $user["phone"] = $user["phone"] ?? ""; ?>' >
 
 						<label for="adress">Numéro et nom de voie</label>
-						<input type="text" id="adress" name="adress" value=<?= $user["adress"] ?>>
+						<input type="text" id="adress" name="adress" value='<?= $user["adress"] = $user["adress"] ?? ""; ?>' >
 
 						<label for="zip_code">Code Postal</label>
-						<input type="text" id="zip_code" name="zip_code" value=<?= $user["zip_code"] ?>>
+						<input type="text" id="zip_code" name="zip_code" value=<?= $user["zip_code"] = $user["zip_code"] ?? ""; ?> >
 
 						<label for="city">Ville</label>
-						<input type="text" id="city" name="city" value=<?= $user["city"] ?>>
+						<input type="text" id="city" name="city" value='<?= $user["city"] = $user["city"] ?? ""; ?>' >
 
 					</fieldset>
 				</div>
@@ -97,7 +97,7 @@
 						<textarea id="pourquoi_adopter" name="pourquoi_adopter" rows="5" cols="33"></textarea> -->
 
 						<label for="password">Confirmez les changements avec votre mot de passe</label>
-						<input type="password" id="password" name="password">
+						<input type="password" id="password" name="password" required>
 
 						<div class="col-lg-4 col-md-5" id="dsubmit">
 							<input type="submit" value="Mettre à jour" name="update">
