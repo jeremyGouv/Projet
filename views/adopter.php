@@ -21,7 +21,7 @@
 
         <div id="burger_icon"><img src="./assets/img/burger_icon.svg" alt="burger icon" id="burger_icon_img">Filtres</div>
         <div class="container-fluid">
-            <div class="row ">
+            <div class="row" id="rowFilter">
                 <div class="filtres_hidden">
                     <div class="accordion " id="accordion">
                         <div class="accordion-item">
@@ -114,8 +114,9 @@
                         <button type="submit" id="search_valid">Valider</button>
                     </div>
                 </div>
-
-                <div class="animaux_trouve offset-md-4 offset-lg-3 p-lg-0 col-lg-8 col-xl-9 d-lg-flex flex-lg-wrap"></div>
+            </div>
+            <div class="row">
+                <div class="animaux_trouve offset-md-4 offset-lg-3 p-lg-0 col-lg-8 col-xl-9 d-lg-flex flex-lg-wrap">test</div>
             </div>
         </div>
     </main>

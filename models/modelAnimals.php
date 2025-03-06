@@ -7,7 +7,7 @@ require_once "models/modelDatabase.php";
 function getAllAnimals()
 {
     $pdo = getConnexion();
-    $sql = "SELECT * FROM jkl_animals";
+    $sql = "SELECT *, jkl_shelter.shelter_name, jkl_race.race_name, jkl_species.species_name FROM jkl_animals JOIN jkl_shelter ON jkl_animals.id_shelter = jkl_shelter.id_shelter JOIN jkl_race ON jkl_animals.id_race = jkl_race.id_race JOIN jkl_species ON jkl_animals.id_species = jkl_species.id_species";
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -35,20 +35,20 @@ function getAnimalById($id_animal)
 }
 
 // Créer un nouvel animal
-function createAnimal($name, $sex, $birthdate, $moreInfos, $picture, $id_race, $id_user, $id_shelter)
+function createAnimal($name, $sex, $birthdate, $picture, $id_race, $id_user, $id_shelter, $id_species)
 {
     $pdo = getConnexion();
-    $sql = "INSERT INTO jkl_animals (name, sex, birthdate, more_infos, id_race, id_user, id_shelter) VALUES (:name, :sex, :birthdate, :moreInfos, :picture, :id_race, :id_user, :id_shelter)";
+    $sql = "INSERT INTO jkl_animals (name, sex, birthdate, picture, id_race, id_user, id_shelter, id_species) VALUES (:name, :sex, :birthdate, :picture, :id_race, null, :id_shelter, :id_species)";
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':sex', $sex, PDO::PARAM_STR);
         $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
-        $stmt->bindParam(':moreInfos', $moreInfos, PDO::PARAM_STR);
         $stmt->bindParam(':picture', $picture, PDO::PARAM_STR);
         $stmt->bindParam(':id_race', $id_race, PDO::PARAM_INT);
-        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        // $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
         $stmt->bindParam(':id_shelter', $id_shelter, PDO::PARAM_INT);
+        $stmt->bindParam(':id_species', $id_species, PDO::PARAM_INT);
         
         return $stmt->execute();
     } catch (PDOException $e) {
@@ -58,19 +58,19 @@ function createAnimal($name, $sex, $birthdate, $moreInfos, $picture, $id_race, $
 }
 
 // Mettre à jour un animal
-function updateAnimal($name, $sex, $birthdate, $moreInfos, $picture, $id_race, $id_user, $id_shelter)
+function updateAnimal($id_animal,$name, $sex, $birthdate, $picture, $id_race, $id_shelter)
 {
     $pdo = getConnexion();
-    $sql = "UPDATE jkl_animals SET name = :name, sex = :sex , birthdate = :birthdate, more_infos = :moreInfos, picture = :picture, id_race = :id_race, id_user = :id_user, id_shelter = :id_shelter, WHERE id_animal = :id_animal";
+    $sql = "UPDATE jkl_animals SET name = :name, sex = :sex , birthdate = :birthdate, picture = :picture, id_race = :id_race, id_shelter = :id_shelter WHERE id_animal = :id_animal";
     try {
         $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id_animal', $id_animal, PDO::PARAM_INT);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':sex', $sex, PDO::PARAM_STR);
         $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
-        $stmt->bindParam(':moreInfos', $moreInfos, PDO::PARAM_STR);
         $stmt->bindParam(':picture', $picture, PDO::PARAM_STR);
         $stmt->bindParam(':id_race', $id_race, PDO::PARAM_INT);
-        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        // $stmt->bindParam(':id_user', $id_user, PDO::PARAM_NULL);
         $stmt->bindParam(':id_shelter', $id_shelter, PDO::PARAM_INT);
         return $stmt->execute();
     } catch (PDOException $e) {
@@ -92,6 +92,71 @@ function deleteAnimal($id_animal)
         echo "Erreur lors de la suppression de l'animal : " . $e->getMessage();
         return false;
     }
+}
+
+// Récuperer toutes les races
+function getAllRaces()
+{
+    $pdo = getConnexion();
+    $sql = "SELECT * FROM jkl_race";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        echo "Erreur lors de la récupération des races : " . $e->getMessage();
+        return false;
+    }
+
+}
+
+// Récuperer toutes les especes
+function getAllSpecies()
+{
+    $pdo = getConnexion();
+    $sql = "SELECT * FROM jkl_species";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        echo "Erreur lors de la récupération des races : " . $e->getMessage();
+        return false;
+    }
+
+}
+
+// Récuperer tout les shelter
+function getAllShelter()
+{
+    $pdo = getConnexion();
+    $sql = "SELECT * FROM jkl_shelter";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        echo "Erreur lors de la récupération des races : " . $e->getMessage();
+        return false;
+    }
+
+}
+
+// Récuperer shelter by name
+function getShelterByName($shelterName)
+{
+    $pdo = getConnexion();
+    $sql = "SELECT * FROM jkl_shelter WHERE name = :shelterName";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':shelterName', $shelterName, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        echo "Erreur lors de la récupération des races : " . $e->getMessage();
+        return false;
+    }
+
 }
 
 // Vérifier les données des formulaires

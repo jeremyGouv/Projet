@@ -3,39 +3,39 @@ const cards = document.querySelector("#card");
 const table = document.querySelector("#table");
 const formAction = document.querySelector(".form-actions");
 
-const row = `<div id="info">
-                <div class="form-group">
-                    <label for="species">Espèce </label>
-                    <select id="species" name="species"> <option value="dog">Chien</option><option value="cat">Chat</option></select>
-                </div>                       
-                <div class="form-group">
-                    <label for="race">Race </label>
-                    <select id="race" name="race"> <option value="">race</option></select>
-                </div>                        
-                <div class="form-group">
-                    <label for="nom">Nom </label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>                   
-                <div class="form-group">
-                    <label for="age">Date de naissance </label>
-                    <input type="date" id="birthdate" name="birthdate" required>
-                </div>      
-                <div class="form-group">
-                    <label for="sexe">Sexe </label>
-                    <select id="sexe" name="sexe">
-                        <option value="male">Mâle</option>
-                        <option value="female">Femelle</option>
-                    </select>
-                </div>                       
-                <div class="form-group">
-                    <label for="shelter">Établissement </label>
-                    <select id="shelter" name="shelter"> <option value="shelter">shelter</option></select>
-                </div>                       
-                <div class="form-group">
-                    <label for="photo">Photo </label>
-                    <input type="file" id="photo" name="photo">
-                </div>                       
-            </div>`;
+// const row = `<div id="info">
+//                 <div class="form-group">
+//                     <label for="species">Espèce </label>
+//                     <select id="species" name="species"> <option value="dog">Chien</option><option value="cat">Chat</option></select>
+//                 </div>                       
+//                 <div class="form-group">
+//                     <label for="race">Race </label>
+//                     <select id="race" name="race"> <option value="">race</option></select>
+//                 </div>                        
+//                 <div class="form-group">
+//                     <label for="nom">Nom </label>
+//                     <input type="text" id="nom" name="nom" required>
+//                 </div>                   
+//                 <div class="form-group">
+//                     <label for="age">Date de naissance </label>
+//                     <input type="date" id="birthdate" name="birthdate" required>
+//                 </div>      
+//                 <div class="form-group">
+//                     <label for="sexe">Sexe </label>
+//                     <select id="sexe" name="sexe">
+//                         <option value="male">Mâle</option>
+//                         <option value="female">Femelle</option>
+//                     </select>
+//                 </div>                       
+//                 <div class="form-group">
+//                     <label for="shelter">Établissement </label>
+//                     <select id="shelter" name="shelter"> <option value="shelter">shelter</option></select>
+//                 </div>                       
+//                 <div class="form-group">
+//                     <label for="photo">Photo </label>
+//                     <input type="file" id="photo" name="photo">
+//                 </div>                       
+//             </div>`;
 
 // addRow.addEventListener("click", (e) => {
 //     formAction.lastElementChild.insertAdjacentHTML("beforebegin", row);
@@ -63,10 +63,11 @@ if (width.matches) {
 }
 
 width.addEventListener("change", () => {
-    console.log("change");
     cards.classList.toggle("inactive");
     table.classList.toggle("inactive");
 });
+
+
 
 // //////////////////////////////////////////////////////////////////////    TABLE    //////////////////////////////////////////////////////////////////////
 // console.log(width);

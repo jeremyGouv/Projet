@@ -11,10 +11,11 @@
 
 select{
     background: #faf1e0;
-    width: 5rem;
+    width: 10rem;
 }
 
 label{
+    text-align: center;
     font-weight: bold;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -22,7 +23,6 @@ label{
 
 input{
     background-color: #faf1e0;
-    margin: 0.5rem;
     border-radius: 10px;
     height: 30px;
     border: none;
@@ -36,29 +36,37 @@ input{
     border: none;
     border-radius: 20px;
     padding: 0;
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #picture{
-    width: 100%;
+    width: 80%;
 }
 
 /* ********************************************************************* */
 #table{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 0.5em;
+    margin: 48px 0 48px 0;
 }
+
 
 #card{
     width: 25rem;
 }
 #card p {
     display: inline;
+    
 }
 
-
-#formShowUser{
-    padding: 16px;
+#formShowAnimal{
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    margin: 1rem 0 1rem 0;
 }
 
 #formShowUser p{
@@ -76,6 +84,9 @@ input{
     display: flex;
     justify-content: center;
 }
+#boutonGestion input{
+    margin: 0.5rem;
+}
 
 #disconnect{
     width: 160px;
@@ -91,27 +102,46 @@ input{
 
 #info{
     display: flex;
+    align-items: center;
     width: 100%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+#infoadd{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* background-color: rgb(235, 235, 235); */
+    border-radius: 10px;
+    margin: 0.5rem 0 0.5rem 0;
+}
+#infoadd input{
+
+    background-color: #faf1e0; 
+   
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    width: 15rem;
-    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* margin-right: 10px; */
     margin-bottom: 10px;
 }
-
-/* input[type="submit"],input[type="button"] {
-    margin-top: 5px;
-    width: 10rem;
-} */
-
-input[type="file"]{
-    width: 100%;
+.form-group input{
+    background-color: rgb(235, 235, 235);
 }
 
-#id_role, #id_user, #zip_code{
+.form-actions{
+    display: flex;
+    align-items: center;
+}
+
+#id_role, #id_animal, #zip_code{
     width: 2rem;
 }
 #phone{
@@ -124,5 +154,3 @@ input[type="file"]{
     display: none !important;   
     
 }
-
-

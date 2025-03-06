@@ -40,14 +40,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 flex-wrap" id="divTable">
+                <div id="divTable">
                     <!-- Les animaux s'affiche ici -->
                     <div id="card">
                         <?php
                         if (!empty($_POST["showAnimals"])) {
-                            displayAnimal($animals);
+                            displayAnimal();
                         } elseif (!empty($_POST["addAnimal"])) {
                             addAnimal();
+                        } else if (!empty($_POST["modifyAnimals"])) {
+                            modifyAnimal();
                         }
                         ?>
                     </div>
@@ -57,6 +59,8 @@
                             displayAnimalTable();
                         } elseif (!empty($_POST["addAnimal"])) {
                             addAnimalTable();
+                        }else if (!empty($_POST["modifyAnimals"])) {
+                            modifyAnimalTable();
                         }
                         ?>
                     </div>

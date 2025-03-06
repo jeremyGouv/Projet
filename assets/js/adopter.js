@@ -1,33 +1,18 @@
-const filter = document.querySelector("#burger_icon");
+const filterIcon = document.querySelector("#burger_icon");
 const search_valid = document.querySelector("#search_valid");
-const disconnectBtnHtml = '<button type="button" id="disconnect">Déconnecter</button>';
-let disconnectBtn = "";
+const filters = document.querySelector(".filtres_hidden");
+
+let rect = filters.getBoundingClientRect();
 let animaux_trouve = document.querySelector(".animaux_trouve");
-let userStatus = document.cookie.split("=")[1];
-let link = document.querySelector("#profil");
 
-console.log(userStatus);
-console.log(link);
-
-//////////////////////////////////////////////////////////////////////    LINK CHANGE ON NAVBAR    //////////////////////////////////////////////////////////////////////
-
-if (userStatus === "admin") {
-    link.href = "admin";
-    navbar.lastElementChild.lastElementChild.insertAdjacentHTML("afterbegin", disconnectBtnHtml);
-    disconnectBtn = document.querySelector("#disconnect");
-} else if (userStatus === "guest") {
-    link.href = "profil";
-    navbar.lastElementChild.lastElementChild.insertAdjacentHTML("afterbegin", disconnectBtnHtml);
-    disconnectBtn = document.querySelector("#disconnect");
-} else {
-    link.href = "connexion";
-}
+console.log(rect.left);
 
 //////////////////////////////////////////////////////////////////////    FILTER MANAGEMENT    //////////////////////////////////////////////////////////////////////
 
-filter.addEventListener("click", () => {
-    document.querySelector(".filtres_hidden").classList.toggle("filtres");
+filterIcon.addEventListener("click", () => {
+    filters.classList.toggle("filtres");
 });
+
 
 console.log(animaux_trouve);
 
@@ -56,17 +41,4 @@ search_valid.addEventListener("click", () => {
     } else if (chat) {
         animaux_trouve.innerHTML = "";
     }
-});
-
-//////////////////////////////////////////////////////////////////////    DECONNEXION    //////////////////////////////////////////////////////////////////////
-
-disconnectBtn.addEventListener("click", () => {
-    document.cookie = "user=";
-    userStatus = document.cookie.split("=")[1];
-
-    if (userStatus === "") {
-        link.href = "connexion";
-    }
-
-    window.location.replace("index");
 });
