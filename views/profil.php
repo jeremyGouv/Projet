@@ -50,10 +50,17 @@
 						<label for="city">Ville</label>
 						<input type="text" id="city" name="city" value='<?= $user["city"] = $user["city"] ?? ""; ?>' >
 
+						<label for="password">Confirmez les changements avec votre mot de passe</label>
+						<input type="password" id="password" name="password" required>
+
+						<div class="col-lg-4 col-md-5" id="dsubmit">
+							<input type="submit" value="Mettre à jour" name="update">
+							<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
+						</div>
 					</fieldset>
 				</div>
 
-				<div class="formulaire">
+				<!-- <div class="formulaire">
 					<fieldset>
 						<legend>Animal déjà possédé</legend>
 						<label for="aucun_animal">Aucun animal</label>
@@ -93,8 +100,8 @@
 						<input type="radio" id="senior" name="agePreference" value="senior" class="radio">
 
 
-						<!-- <label for="pourquoi_adopter">Pourquoi souhaitez-vous adopter ?</label>
-						<textarea id="pourquoi_adopter" name="pourquoi_adopter" rows="5" cols="33"></textarea> -->
+						<label for="pourquoi_adopter">Pourquoi souhaitez-vous adopter ?</label>
+						<textarea id="pourquoi_adopter" name="pourquoi_adopter" rows="5" cols="33"></textarea>
 
 						<label for="password">Confirmez les changements avec votre mot de passe</label>
 						<input type="password" id="password" name="password" required>
@@ -104,7 +111,11 @@
 							<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
 						</div>
 						
-					</fieldset>
+					</fieldset> -->
+					<!-- <div class="col-lg-4 col-md-5" id="dsubmit">
+						<input type="submit" value="Mettre à jour" name="update">
+						<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
+					</div> -->
 				</div>
 			</form>
 		</div>

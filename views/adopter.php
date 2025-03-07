@@ -22,101 +22,111 @@
         <div id="burger_icon"><img src="./assets/img/burger_icon.svg" alt="burger icon" id="burger_icon_img">Filtres</div>
         <div class="container-fluid">
             <div class="row" id="rowFilter">
+                    
                 <div class="filtres_hidden">
-                    <div class="accordion " id="accordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    Nom de l'établissements
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <input type="text" id="nom_etablissement">
+                    <form action="adopter" method="post">
+                        <div class="accordion " id="accordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Nom de l'établissements
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <select name="id_shelter" id="id_shelter">
+                                            <?php foreach ($shelters as $shelter) {
+                                                echo "<option value=" . $shelter["id_shelter"] . "> $shelter[shelter_name] </option>";
+                                            } ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Nom
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <input type="text" id="nom_animal">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Nom
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <input type="text" id="nom_animal" name="nom_animal">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Espèces
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <label for="chien">Chien</label>
-                                    <input type="checkbox" name="chien" id="chien"> <br>
-                                    <label for="chat">Chat</label>
-                                    <input type="checkbox" name="chat" id="chat">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Espèces
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <label for="chien">Chien</label>
+                                        <input type="checkbox" name="chien" id="chien"> <br>
+                                        <label for="chat">Chat</label>
+                                        <input type="checkbox" name="chat" id="chat">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-item">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Race
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <select name="race" id="race">
-                                        <option value="indifferent">Indifferent</option>
-                                        <option value="europeen">Européen</option>
-                                    </select>
+                            <div class="accordion-item">
+                                <h2 class="accordion-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" id="race_accordion">
+                                        Race
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <select name="race" id="race">
+                                            <?php foreach ($races as $race) {
+                                                if($race["id_species"] == 1) {
+                                                    echo "<option value=" . $race["id_race"] . " id=".$race["id_race"]." class=dog> $race[race_name] </option>";
+                                                }else{
+                                                    echo "<option value=" . $race["id_race"] . " id=".$race["id_race"]." class=cat> $race[race_name] </option>";
+                                                }
+                                            } ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-item">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Sexe
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <label for="male">Mâle</label>
-                                    <input type="checkbox" name="male" id="male"> <br>
-                                    <label for="femelle">Femelle</label>
-                                    <input type="checkbox" name="femelle" id="femelle">
+                            <div class="accordion-item">
+                                <h2 class="accordion-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Sexe
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <label for="male">Mâle</label>
+                                        <input type="checkbox" name="male" id="male"> <br>
+                                        <label for="femelle">Femelle</label>
+                                        <input type="checkbox" name="femelle" id="femelle">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-item">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    age
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                <div class="accordion-body">
-                                    <label for="junior">Junior</label>
-                                    <input type="checkbox" name="junior" id="junior"> <br>
-                                    <label for="adulte">Adulte</label>
-                                    <input type="checkbox" name="adulte" id="adulte"> <br>
-                                    <label for="senior">Sénior</label>
-                                    <input type="checkbox" name="senior" id="senior">
+                            <div class="accordion-item">
+                                <h2 class="accordion-item">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        age
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <label for="junior">Junior</label>
+                                        <input type="checkbox" name="junior" id="junior"> <br>
+                                        <label for="adulte">Adulte</label>
+                                        <input type="checkbox" name="adulte" id="adulte"> <br>
+                                        <label for="senior">Sénior</label>
+                                        <input type="checkbox" name="senior" id="senior">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <button type="submit" id="search_valid">Valider</button>
-                    </div>
+                            <input type="submit" id="search_valid" name="search_valid" value="Valider">
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="row">
-                <div class="animaux_trouve offset-md-4 offset-lg-3 p-lg-0 col-lg-8 col-xl-9 d-lg-flex flex-lg-wrap">test</div>
+                <div class="animaux_trouve col-lg-9 col-xl-9 d-flex flex-wrap"> <?php showAnimals() ?></div>
             </div>
         </div>
     </main>

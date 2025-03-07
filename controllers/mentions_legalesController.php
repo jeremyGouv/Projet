@@ -1,3 +1,3 @@
 <?php 
 session_start();
-require "views/mentions_legales.php";
+include "views/mentions_legales.php";

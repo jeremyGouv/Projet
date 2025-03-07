@@ -1,4 +1,4 @@
 <?php 
 
 session_start();
-require "views/don.php";
+include "views/don.php";

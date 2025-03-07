@@ -50,11 +50,6 @@
     
 }
 
-.animaux_trouve{
-    padding: 1rem 0 0 3.5rem;
-    
-}
-
 #search_valid{
     width: 100px;
     height: 30px;
@@ -79,6 +74,7 @@
 
 /*********************FORMULAIRE*********************/
 
+
 .formulaire{
     background-color: #fffaf1;
     border: 1px solid;
@@ -94,7 +90,7 @@
 
 select{
     background: #faf1e0;
-    width: 3rem;
+    width: 12rem;
 }
 
 form div, form fieldset{
@@ -105,12 +101,6 @@ form div, form fieldset{
 label{
     font-weight: bold;
     margin-top: 1rem;
-}
-
-textarea{
-    background-color: #faf1e0;
-    border-radius: 10px;
-    border: none;
 }
 
 input{
@@ -137,19 +127,18 @@ form legend{
     font-size:x-large;
 }
 
-.radio, .checkbox{
-    align-self: flex-start;
-    margin-left: 1rem;
+input[type="checkbox"]{
+    width: 2rem;
 }
 
 
-@media screen and (min-width: 767px){
+@media screen and (min-width: 992px){
     #burger_icon{
         display: none;
     }
     
     .filtres_hidden{
-        position: absolute;
+        position: relative;
         left: 0;
         margin-top: 100px;
         transition: none;
@@ -159,7 +148,7 @@ form legend{
 
     .animaux_trouve{
         margin-top: 100px;
-        
     }
+   
 
 }

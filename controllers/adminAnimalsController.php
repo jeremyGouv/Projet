@@ -2,6 +2,11 @@
 session_start();
 
 require_once "models/modelAnimals.php";
+require_once "models/modelShelters.php";
+require_once "models/modelRaces.php";
+require_once "models/modelSpecies.php";
+
+
 
 
 function addAnimal()
@@ -266,11 +271,11 @@ function modifyAnimal()
     foreach ($species as $specie) {
 
         // if ($specie["species_name"] == $animal["species_name"]) {
-            // $speciesOption .= "<option value=" . $k . " selected>" . $specie["species_name"] . "</option>";
-            // $k++;
+        // $speciesOption .= "<option value=" . $k . " selected>" . $specie["species_name"] . "</option>";
+        // $k++;
         // } else {
-            $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
-            $k++;
+        $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
+        $k++;
         // }
     }
     foreach ($races as $race) {
@@ -346,17 +351,37 @@ function modifyAnimalTable()
         $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
         $i++;
     }
-    foreach ($species as $species) {
-        $speciesOption .= "<option value=" . $j . ">" . $species["species_name"] . "</option>";
-        $j++;
-    }
     foreach ($shelters as $shelter) {
         $shelterOption .= "<option value='" . $k . "'>" . $shelter["shelter_name"] . "</option>";
-        $k++;
+        $j++;
+    }
+    foreach ($species as $specie) {
+
+        // if ($specie["species_name"] == $animal["species_name"]) {
+        //     $speciesOption .= "<option value=" . $k . " selected>" . $specie["species_name"] . "</option>";
+        //     $k++;
+        // } else {
+        //     $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
+        //     $k++;
+        // }
+        // foreach ($animals as $animal) {
+        //     $selected = $specie["species_name"] == $animal["species_name"] ? 'selected=selected' : "";
+        //     // echo $specie["species_name"] . " = " . $animal["species_name"] . $selected;
+        //     // echo "<br>";
+        //     $speciesOption .= "<option value=" . $k . " " . $selected . ">" . $specie["species_name"] . "</option>";
+        //     $k++;
+        // }
+        // // $speciesOption .= "<option value=" . $k . " " . $selected . ">" . $specie["species_name"] . "</option>";
+        // // $k++;
+        //     echo "esepce : ".$specie["species_name"] . " = " . $animal["species_name"] . $selected;
+        //     echo "<br>";
+        //     echo "option : ".$speciesOption;
+        $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
+            $k++;
     }
 
     foreach ($animals as $animal) {
-
+        $species = getAllSpecies();
         $table = <<<EOD
                 <form id="formShowAnimal" class="formulaire" action="adminAnimals" method="post">
                         <div id="infoadd">
@@ -366,7 +391,7 @@ function modifyAnimalTable()
                             </div>
                             
                             <div class="form-group">
-                                <label for="id_species">Espèce </label>
+                                <label for="id_species">Espèce</label>
                                 <select id="id_species" name="id_species"> $speciesOption </select>
                             </div>
                             
