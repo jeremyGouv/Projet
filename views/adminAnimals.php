@@ -36,6 +36,7 @@
                         <input type="submit" value="Ajouter un animal" name="addAnimal" id="addAnimal">
                         <input type="submit" value="Afficher les animaux" name="showAnimals" id="showAnimals">
                         <input type="submit" value="Modifier les animaux" name="modifyAnimals" id="modifyAnimals">
+                        <input type="submit" value="Refuges" name="modifyShelters" id="modifyShelters">
                     </form>
                 </div>
             </div>
@@ -50,6 +51,8 @@
                             addAnimal();
                         } else if (!empty($_POST["modifyAnimals"])) {
                             modifyAnimal();
+                        } else if (!empty($_POST["modifyShelters"])) {
+                            displayShelters();
                         }
                         ?>
                     </div>
@@ -61,6 +64,8 @@
                             addAnimalTable();
                         }else if (!empty($_POST["modifyAnimals"])) {
                             modifyAnimalTable();
+                        } else if (!empty($_POST["modifyShelters"])) {
+                            displaySheltersTable();
                         }
                         ?>
                     </div>
@@ -72,11 +77,11 @@
 
     <?php include "templates/templateFooter.php"; ?>
 
+    <script src="assets/js/script.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
     <script src="assets/js/adminAnimals.js"></script>
 </body>
 

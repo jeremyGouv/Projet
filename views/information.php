@@ -21,7 +21,7 @@
                     <h5><?= $animal["name"] ?></h5>
                     <p><img src='/assets/img/<?= $imgFolder ?>/<?= $img ?>' class="card-img-top" alt="chien"></p>
                 </div>
-                <div class="col-lg-5 offset-lg-2 h-25" id="info">
+                <div class="col-lg-2 offset-lg-2 h-25" id="info">
                     <p>NOM : <?= $animal["name"] ?> </p>
                     <p id="para">ESPECE : <?= $animal["species_name"] ?>
                     <p>RACE : <?= $animal["race_name"] ?> </p>
@@ -32,11 +32,6 @@
 
             <div class="row">
                 <div class="row col-lg-6 flex-column">
-                    <div class="col-lg-8 offset-lg-2" id="plusInfo">
-                        <h5>Plus d'informations</h5>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptatibus cumque et, assumenda ipsa autem iure ipsam! Explicabo sunt rerum aspernatur dicta ut reiciendis expedita unde, minus quas nemo eius?</p>
-                    </div>
-
                     <div class="col-lg-6 offset-lg-2" id="horaires">
                         <p>Horaire : </p><p><?= $shelter[0]["infos"]  ?></p>
                         <p>Adresse : </p><p><?= $shelter[0]["adress"] ?>, <?= $shelter[0]["zip_code"] ?>, <span id="city"><?= $shelter[0]["city"] ?></span></p>

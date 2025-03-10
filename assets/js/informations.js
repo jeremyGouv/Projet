@@ -1,6 +1,6 @@
 let ville = document.querySelector("#city").textContent;
 let cities = {
-    Montuçon: {
+    Montluçon: {
         lat: 46.369,
         lon: 2.597,
     },
@@ -55,7 +55,6 @@ let cities = {
 };
 
 //////////////////////////////////////////////////////////////////////    MAP    //////////////////////////////////////////////////////////////////////
-
 
 for (let [city, coordinates] of Object.entries(cities)) {
     if (ville == city) {

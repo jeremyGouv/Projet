@@ -78,4 +78,3 @@ search_valid.addEventListener("click", () => {
     }
 });
 
-const a = document.querySelector

@@ -7,8 +7,6 @@ require_once "models/modelRaces.php";
 require_once "models/modelSpecies.php";
 
 
-
-
 function addAnimal()
 {
     $races = getAllRaces();
@@ -19,22 +17,16 @@ function addAnimal()
     $speciesOption = "";
     $shelterOption = "";
 
-    $i = 1; // increment value $raceOption
-    $j = 1; // increment value $shelterOption
-    $k = 1; // increment value $speciesOption
 
 
     foreach ($races as $race) {
-        $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
-        $i++;
+        $raceOption .= "<option value=" . $race["id_race"] . ">" . $race["race_name"] . "</option>";
     }
     foreach ($species as $species) {
-        $speciesOption .= "<option value=" . $k . ">" . $species["species_name"] . "</option>";
-        $k++;
+        $speciesOption .= "<option value=" . $species["id_species"] . ">" . $species["species_name"] . "</option>";
     }
     foreach ($shelters as $shelter) {
-        $shelterOption .= "<option value='" . $j . "'>" . $shelter["shelter_name"] . "</option>";
-        $j++;
+        $shelterOption .= "<option value='" . $shelter["id_shelter"] . "'>" . $shelter["shelter_name"] . "</option>";
     }
 
     $card = <<<EOD
@@ -45,7 +37,6 @@ function addAnimal()
                 <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate"> <br>
                 <label for="sex">Sexe : </label> <select id="sex" name="sex"><option value="Mâle">Mâle</option><option value="Femelle">Femelle</option></select> <br>
                 <label for="shelter">Etablissement : </label> <select id="id_shelter" name="id_shelter"> $shelterOption </select> <br>
-                <label for="more_infos">Infos : </label> <textarea id="more_infos" name="more_infos" rows="2" cols="30" placeholder="facultatif"></textarea> <br>
                 <label for="picture">Photo : </label> <input type="file" id="picture" name="picture"> <br>
                 <div id="dsubmit">
                     <input type="submit" value="Enregistrer" name="saveAnimal" id="saveAnimal">
@@ -66,21 +57,15 @@ function addAnimalTable()
     $speciesOption = "";
     $shelterOption = "";
 
-    $i = 1; // increment value $raceOption
-    $j = 1; // increment value $shelterOption
-    $k = 1; // increment value $speciesOption
 
     foreach ($races as $race) {
-        $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
-        $i++;
+        $raceOption .= "<option value=" . $race["id_race"] . ">" . $race["race_name"] . "</option>";
     }
     foreach ($species as $species) {
-        $speciesOption .= "<option value=" . $j . ">" . $species["species_name"] . "</option>";
-        $j++;
+        $speciesOption .= "<option value=" . $species["id_species"] . ">" . $species["species_name"] . "</option>";
     }
     foreach ($shelters as $shelter) {
-        $shelterOption .= "<option value='" . $k . "'>" . $shelter["shelter_name"] . "</option>";
-        $k++;
+        $shelterOption .= "<option value='" . $shelter["id_shelter"] . "'>" . $shelter["shelter_name"] . "</option>";
     }
 
     $table = <<<EOD
@@ -255,18 +240,7 @@ function modifyAnimal()
     $shelterOption = "";
     $sexOption = "";
 
-    $i = 1; // increment value $raceOption
-    $j = 1; // increment value $shelterOption
-    $k = 1; // increment value $speciesOption
 
-    // echo "<pre>";
-    // print_r($animals);
-    // print_r($_POST);
-    // print_r($races);
-    // print_r($species);
-    // print_r($shelters);
-    // print_r($animalSex);
-    // echo "</pre>";
 
     foreach ($species as $specie) {
 
@@ -274,8 +248,7 @@ function modifyAnimal()
         // $speciesOption .= "<option value=" . $k . " selected>" . $specie["species_name"] . "</option>";
         // $k++;
         // } else {
-        $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
-        $k++;
+        $speciesOption .= "<option value=" . $specie["id_species"] . ">" . $specie["species_name"] . "</option>";
         // }
     }
     foreach ($races as $race) {
@@ -286,8 +259,7 @@ function modifyAnimal()
         //     $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
         //     $i++;
         // }
-        $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
-        $i++;
+        $raceOption .= "<option value=" . $race["id_race"] . ">" . $race["race_name"] . "</option>";
     }
     foreach ($shelters as $shelter) {
         // if ($shelter["shelter_name"] == $animal["shelter_name"]) {
@@ -297,8 +269,7 @@ function modifyAnimal()
         //     $shelterOption .= "<option value=" . $j . ">" . $shelter["shelter_name"] . "</option>";
         //     $j++;
         // }
-        $shelterOption .= "<option value=" . $j . ">" . $shelter["shelter_name"] . "</option>";
-        $j++;
+        $shelterOption .= "<option value=" . $shelter["id_shelter"] . ">" . $shelter["shelter_name"] . "</option>";
     }
     foreach ($animalSex as $value) {
         // if ($value == $animal["sex"]) {
@@ -320,7 +291,6 @@ function modifyAnimal()
                     <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate" value=$animal[birthdate]> <br>
                     <label for="sex">Sexe : </label> <select id="sex" name="sex"> $sexOption </select> <br>
                     <label for="shelter">Etablissement : </label> <select id="id_shelter" name="id_shelter"> $shelterOption </select> <br>
-                    <label for="more_infos">Infos : </label> <textarea id="more_infos" name="more_infos" rows="2" cols="30" placeholder="facultatif"></textarea> <br>
                     <label for="picture">Photo : </label> <input type="file" id="picture" name="picture"> <br>
                     <div id="dsubmit">
                         <input type="submit" value="Enregistrer" name="updateAnimal" id="updateAnimal">
@@ -343,41 +313,16 @@ function modifyAnimalTable()
     $speciesOption = "";
     $shelterOption = "";
 
-    $i = 1; // increment value $raceOption
-    $j = 1; // increment value $shelterOption
-    $k = 1; // increment value $speciesOption
+
 
     foreach ($races as $race) {
-        $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
-        $i++;
+        $raceOption .= "<option value=" . $race["id_race"] . ">" . $race["race_name"] . "</option>";
+    }
+    foreach ($species as $species) {
+        $speciesOption .= "<option value=" . $species["id_species"] . ">" . $species["species_name"] . "</option>";
     }
     foreach ($shelters as $shelter) {
-        $shelterOption .= "<option value='" . $k . "'>" . $shelter["shelter_name"] . "</option>";
-        $j++;
-    }
-    foreach ($species as $specie) {
-
-        // if ($specie["species_name"] == $animal["species_name"]) {
-        //     $speciesOption .= "<option value=" . $k . " selected>" . $specie["species_name"] . "</option>";
-        //     $k++;
-        // } else {
-        //     $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
-        //     $k++;
-        // }
-        // foreach ($animals as $animal) {
-        //     $selected = $specie["species_name"] == $animal["species_name"] ? 'selected=selected' : "";
-        //     // echo $specie["species_name"] . " = " . $animal["species_name"] . $selected;
-        //     // echo "<br>";
-        //     $speciesOption .= "<option value=" . $k . " " . $selected . ">" . $specie["species_name"] . "</option>";
-        //     $k++;
-        // }
-        // // $speciesOption .= "<option value=" . $k . " " . $selected . ">" . $specie["species_name"] . "</option>";
-        // // $k++;
-        //     echo "esepce : ".$specie["species_name"] . " = " . $animal["species_name"] . $selected;
-        //     echo "<br>";
-        //     echo "option : ".$speciesOption;
-        $speciesOption .= "<option value=" . $k . ">" . $specie["species_name"] . "</option>";
-            $k++;
+        $shelterOption .= "<option value='" . $shelter["id_shelter"] . "'>" . $shelter["shelter_name"] . "</option>";
     }
 
     foreach ($animals as $animal) {
@@ -439,6 +384,80 @@ function modifyAnimalTable()
     }
 }
 
+function displayShelters()
+{
+    $shelters = getAllShelter();
+
+    foreach ($shelters as $shelter) {
+        $card = <<<CARD
+                    <form action="adminAnimals" method="post" class="formulaire">
+                        <label for="id_shelter">ID : </label> <input type="text" id="id_shelter" name="id_shelter" value=$shelter[id_shelter]> <br>
+                        <label for="shelter_name">Nom : </label> <input type="text" id="shelter_name" name="shelter_name" value='$shelter[shelter_name]'> <br>
+                        <label for="adress">Adresse : </label> <input type="text" id="adress" name="adress" value='$shelter[adress]' > <br>
+                        <label for="zip_code">Code postal : </label> <input type="text" id="zip_code" name="zip_code" value='$shelter[zip_code]'> <br>
+                        <label for="city">Ville : </label> <input type="text" id="city" name="city" value='$shelter[city]'> <br>
+                        <label for="phone">Télephone : </label> <input type="text" id="phone" name="phone" value='$shelter[phone]'> <br>
+                        <label for="infos">Informations : </label> <textarea id="infos" name="infos" cols="40" raw="10">$shelter[infos]</textarea> <br>
+                        <div id="dsubmit">
+                            <input type="submit" value="Supprimer" name="deleteShelter" class="deleteShelter">
+                            <input type="submit" value="Modifier" name="modifyShelter" class="modifyShelter">
+                        </div>
+                    </form>
+                CARD;
+        echo $card;
+    }
+}
+
+function displaySheltersTable()
+{
+    $shelters = getAllShelter();
+
+    foreach ($shelters as $shelter) {
+        $card = <<<CARD
+                    <form id="formShowAnimal" class="formulaire" action="adminAnimals" method="post">
+                        <div id="info">
+                        
+                            <div class="form-group">
+                                <label for="id_shelter">ID</label>
+                                <input type="text" id="id_shelter" name="id_shelter" value=$shelter[id_shelter]>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="shelter_name">Nom</label>
+                                <p>$shelter[shelter_name]</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="adresse">Adresse </label>
+                                <p>$shelter[adress]</p>
+                             </div>
+
+                            <div class="form-group">
+                                <label for="zip_code">Code postale </label>
+                                <p>$shelter[zip_code]</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">Ville </label>
+                                <p>$shelter[city]</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Télephone </label>
+                                <p>$shelter[phone]</p>
+                            </div>
+                        </div>
+                            
+                        <div class="form-actions" id="dsubmit">
+                            <input type="submit" value="Supprimer" name="deleteShelter" id="deleteShelter">
+                        </div>
+                    </form>
+            CARD;
+        echo $card;
+    }
+}
+
+
 if (!empty($_POST["saveAnimal"])) {
 
     $name = validData($_POST["name"]);
@@ -452,50 +471,18 @@ if (!empty($_POST["saveAnimal"])) {
     createAnimal($name, $sex, $birthdate, $picture, $id_race, "", $id_shelter, $id_species);
 }
 
-if (!empty($_POST["deleteAnimal"])) {
-    deleteAnimal($_POST["id_animal"]);
-}
-
 if (!empty($_POST["updateAnimal"])) {
-
     updateAnimal($_POST["id_animal"], $_POST["name"], $_POST["sex"], $_POST["birthdate"], $_POST["picture"], $_POST["id_race"], $_POST["id_shelter"]);
 }
 
+if (!empty($_POST["deleteShelter"])) {
+    // deleteShelter($_POST["id_shelter"]);
+}
+
+if (!empty($_POST["modifyShelter"])) {
+    updateShelter($_POST["id_shelter"], $_POST["shelter_name"], $_POST["adress"], $_POST["zip_code"], $_POST["city"], $_POST["infos"], $_POST["phone"]);
+}
+
+
 
 include "views/adminAnimals.php";
-
-
-
-
-// <form id="animalForm">
-//   <fieldset>
-//     <legend>Informations sur l'animal</legend>
-
-//     <label for="espece">Espèce :</label>
-//     <input type="text" id="espece" name="espece" required><br><br>
-
-//     <label for="race">Race :</label>
-//     <input type="text" id="race" name="race" required><br><br>
-
-//     <label for="nom">Nom :</label>
-//     <input type="text" id="nom" name="nom" required><br><br>
-
-//     <label for="age">Âge :</label>
-//     <input type="number" id="age" name="age" required><br><br>
-
-//     <label for="sexe">Sexe :</label>
-//     <select id="sexe" name="sexe">
-//       <option value="male">Mâle</option>
-//       <option value="female">Femelle</option>
-//     </select><br><br>
-
-//     <label for="etablissement">Établissement :</label>
-//     <input type="text" id="etablissement" name="etablissement" required><br><br>
-
-//     <label for="photo">Photo :</label>
-//     <input type="file" id="photo" name="photo"><br><br>
-
-//     <input type="submit" value="Enregistrer" name="saveAnimal" id="saveAnimal">
-//     <input type="button" value="Ajouter une ligne" name="addRow" id="addRow">
-//   </fieldset>
-// </form>

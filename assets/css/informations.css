@@ -5,7 +5,7 @@
     z-index: 0;
 }
 
-#photo, #info, #plusInfo, #horaires{
+#photo, #info, #horaires{
     background: #fffaf1;
     border: black 1px solid;
     border-radius: 10px;
@@ -39,4 +39,8 @@
     border-radius: 20px;
     padding: 0;
     margin-top: 1rem;
+}
+
+p{
+    text-decoration: underline;
 }
