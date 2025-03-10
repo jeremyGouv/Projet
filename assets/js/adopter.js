@@ -77,3 +77,5 @@ search_valid.addEventListener("click", () => {
         animaux_trouve.innerHTML = "";
     }
 });
+
+const a = document.querySelector

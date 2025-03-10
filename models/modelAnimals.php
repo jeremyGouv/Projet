@@ -22,7 +22,8 @@ function getAllAnimals()
 function getAnimalById($id_animal)
 {
     $pdo = getConnexion();
-    $sql = "SELECT * FROM jkl_animals WHERE id_animal = :id_animal";
+    $sql = "SELECT *, jkl_shelter.shelter_name, jkl_race.race_name, jkl_species.species_name FROM jkl_animals JOIN jkl_shelter ON jkl_animals.id_shelter = jkl_shelter.id_shelter JOIN jkl_race ON jkl_animals.id_race = jkl_race.id_race JOIN jkl_species ON jkl_animals.id_species = jkl_species.id_species WHERE id_animal = :id_animal";
+    // $sql = "SELECT * FROM jkl_animals WHERE id_animal = :id_animal";
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id_animal', $id_animal, PDO::PARAM_INT);

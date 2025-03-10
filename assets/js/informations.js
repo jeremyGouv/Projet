@@ -1,60 +1,74 @@
-let userStatus = document.cookie.split("=")[1];
-let link = document.querySelector("#profil");
-let disconnectBtn = '';
-const disconnectBtnHtml = '<button type="button" id="disconnect">Déconnecter</button>';
-
-console.log(userStatus);
-console.log(link);
-
-//////////////////////////////////////////////////////////////////////    LINK CHANGE ON NAVBAR    //////////////////////////////////////////////////////////////////////
-
-if (userStatus === "admin") {
-  link.href = "admin";
-  navbar.lastElementChild.lastElementChild.insertAdjacentHTML("afterbegin", disconnectBtnHtml);
-  disconnectBtn = document.querySelector("#disconnect");
-} else if (userStatus === "guest"){
-  link.href = "profil";
-  navbar.lastElementChild.lastElementChild.insertAdjacentHTML("afterbegin", disconnectBtnHtml);
-  disconnectBtn = document.querySelector("#disconnect");
-}else{
-  link.href = "connexion";
-}
+let ville = document.querySelector("#city").textContent;
+let cities = {
+    Montuçon: {
+        lat: 46.369,
+        lon: 2.597,
+    },
+    Quimper: {
+        lat: 47.969,
+        lon: -4.11,
+    },
+    Luynes: {
+        lat: 47.425,
+        lon: 0.55,
+    },
+    Thionville: {
+        lat: 49.406,
+        lon: 6.11,
+    },
+    Compiègne: {
+        lat: 49.422,
+        lon: 2.846,
+    },
+    Plaisir: {
+        lat: 48.799,
+        lon: 1.93,
+    },
+    Cabourg: {
+        lat: 49.278,
+        lon: -0.116,
+    },
+    Chameyrat: {
+        lat: 45.225,
+        lon: 1.708,
+    },
+    Perpignan: {
+        lat: 42.741,
+        lon: 2.886,
+    },
+    Bouguenais: {
+        lat: 47.169,
+        lon: -1.658,
+    },
+    Briançon: {
+        lat: 44.879,
+        lon: 6.621,
+    },
+    Beaurepaire: {
+        lat: 46.668,
+        lon: 5.414,
+    },
+    Guadeloupe: {
+        lat: 16.266,
+        lon: -61.511,
+    },
+};
 
 //////////////////////////////////////////////////////////////////////    MAP    //////////////////////////////////////////////////////////////////////
 
-// On initialise la latitude et la longitude de Paris (centre de la carte)
-let lat = 48.852969;
-let lon = 2.349903;
-let macarte = null;
-// Fonction d'initialisation de la carte
-function initMap() {
-  // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-  macarte = L.map("map").setView([lat, lon], 10);
-  // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-  L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
-    // Il est toujours bien de laisser le lien vers la source des données
-    attribution:
-      'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-    minZoom: 1,
-    maxZoom: 10,
-  }).addTo(macarte);
-}
-window.onload = function () {
-  // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
-  initMap();
-};
 
-//////////////////////////////////////////////////////////////////////    DECONNEXION    //////////////////////////////////////////////////////////////////////
+for (let [city, coordinates] of Object.entries(cities)) {
+    if (ville == city) {
+        let coords = [coordinates.lat, coordinates.lon];
 
-disconnectBtn.addEventListener("click", ()=>{
-    document.cookie = 'user=';
-    userStatus = document.cookie.split("=")[1];
-    
-    if (userStatus === "") {
-        link.href = "connexion";
+        // On initialise la carte (en lui passant 'map' qui est l'ID de la DIV contenant la carte)
+        let map = L.map("map", { zoom: 7, center: coords });
+        let marker = L.marker(coords).addTo(map);
+
+        // On ajoute le calque permettant d'afficher les images de la carte
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
     }
-    
-    window.location.replace("index");
-    
-
-});
+}

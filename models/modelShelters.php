@@ -23,7 +23,7 @@ function getAllShelter()
 function getShelterByName($shelterName)
 {
     $pdo = getConnexion();
-    $sql = "SELECT * FROM jkl_shelter WHERE name = :shelterName";
+    $sql = "SELECT * FROM jkl_shelter WHERE shelter_name = :shelterName";
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':shelterName', $shelterName, PDO::PARAM_STR);

@@ -126,7 +126,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="animaux_trouve col-lg-9 col-xl-9 d-flex flex-wrap"> <?php showAnimals() ?></div>
+                <div class="animaux_trouve col-lg-9 col-xl-9 d-flex justify-content-center flex-wrap"> <?php showAnimals() ?></div>
             </div>
         </div>
     </main>
