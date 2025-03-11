@@ -26,13 +26,17 @@ function showAnimals()
     foreach ($animals as $animal) {
         $imgFolder = $animal["id_species"] === 1 ? "dog" : "cat";
         $img = $animal["picture"];
+        $species = $animal["id_species"] === 1 ? "dog" : "cat";
+        $animalName = $animal["name"];
+        $shelterName = $animal["shelter_name"];
+        $raceName = $animal["race_name"];
 
         $card = <<<CARD
-                    <div class="card p-2">
-                                <a href="information?id_animal=$animal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="chien"></a>
+                    <div class="card p-2 $species">
+                                <a href="information?id_animal=$animal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="photo_animal"></a>
                                 <div class="card-body">
                                     <h5 class="card-title" id="animalName"> $animal[name] </h5>
-                                    <p class="card-text" id="shelterName"> Refuge : $animal[shelter_name] </p>
+                                    <p class="card-text" id="shelterName"> $animal[shelter_name] </p>
                                     <p class="card-text" id="animalRace"> Race : $animal[race_name] </p>
                                 </div>
                             </div>

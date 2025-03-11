@@ -30,28 +30,20 @@
                     <h2 class="text-center">Gestion des utilisateurs</h2>
                 </div>
             </div>
-      <!--      <div class="row m-0 p-0 justify-content-center">
-                <div class="col-11 col-md-6 col-lg-7 m-0 p-0" id="boutonGestion">
-                    <form method="post" action="adminUsers">
-                        <input type="submit" value="Afficher les utilisateur" name="showUsers" id="showUsers">
-                    </form>
-                </div>
-            </div> -->
             <div class="row">
                 <div id="divTable">
                     <!-- Les utilisateurs s'affiche ici -->
                     <div id="cards" class="d-flex justify-content-center flex-wrap">
                         <?php 
-                        // if (!empty($_POST["showUsers"])) {
+
                             displayUsers($users);
-                        // }
                         ?>
                     </div>
                     <div id="table" class="inactive">
                         <?php 
-                        // if (!empty($_POST["showUsers"])) {
+
                             displayUsersTable($users);
-                        // }
+
                         ?>
                     </div>
                 </div>

@@ -53,6 +53,7 @@ function deleteShelter($id_shelter)
 
 // Update shelter
 function updateShelter($id_shelter, $shelter_name, $adress, $zip_code, $city, $infos, $phone){
+
     $pdo = getConnexion();
     $sql = "UPDATE jkl_shelter SET id_shelter = :id_shelter, shelter_name = :shelter_name, adress = :adress, zip_code = :zip_code, city = :city, infos = :infos, phone = :phone WHERE id_shelter = :id_shelter";
     try {
@@ -70,4 +71,25 @@ function updateShelter($id_shelter, $shelter_name, $adress, $zip_code, $city, $i
         return false;
     }
 
+}
+
+// Créer un nouveau refuge
+function createShelter($shelter_name, $adress, $zip_code, $city, $infos, $phone)
+{
+    $pdo = getConnexion();
+    $sql = "INSERT INTO jkl_shelter (shelter_name, adress, zip_code, city, phone, infos) VALUES (:shelter_name, :adress, :zip_code, :city, :infos, :phone)";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':shelter_name', $shelter_name, PDO::PARAM_STR);
+        $stmt->bindParam(':adress', $adress, PDO::PARAM_STR);
+        $stmt->bindParam(':zip_code', $zip_code, PDO::PARAM_INT);
+        $stmt->bindParam(':city', $city, PDO::PARAM_STR);
+        $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+        $stmt->bindParam(':infos', $infos, PDO::PARAM_STR);
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        echo "Erreur lors de la création du refuge : " . $e->getMessage();
+        return false;
     }
+}
+

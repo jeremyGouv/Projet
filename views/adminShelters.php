@@ -10,7 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/adminAnimals.css" />
+    <link rel="stylesheet" href="assets/css/adminShelters.css" />
     <title>Les Compagnons du Bonheur</title>
 </head>
 
@@ -27,15 +27,14 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center">Gestion des animaux</h2>
+                    <h2 class="text-center">Gestion des refuges</h2>
                 </div>
             </div>
             <div class="row m-0 p-0 justify-content-center">
                 <div class="col-12 m-0 p-0" id="boutonGestion">
-                    <form method="post" action="adminAnimals" id="formButton">
-                        <input type="submit" value="Ajouter un animal" name="addAnimal" id="addAnimal">
-                        <input type="submit" value="Afficher les animaux" name="showAnimals" id="showAnimals">
-                        <input type="submit" value="Modifier les animaux" name="modifyAnimals" id="modifyAnimals">
+                    <form method="post" action="adminShelters" id="formButton">
+                        <input type="submit" value="Ajouter un refuge" name="addShelter" id="addShelter">
+                        <input type="submit" value="Afficher les refuges" name="showShelters" id="showShelters">
                     </form>
                 </div>
             </div>
@@ -44,23 +43,19 @@
                     <!-- Les animaux s'affiche ici -->
                     <div id="card">
                         <?php
-                        if (!empty($_POST["showAnimals"])) {
-                            displayAnimal();
-                        } elseif (!empty($_POST["addAnimal"])) {
-                            addAnimal();
-                        } else if (!empty($_POST["modifyAnimals"])) {
-                            modifyAnimal();
+                        if (!empty($_POST["showShelters"])) {
+                            displayShelters();
+                        } elseif (!empty($_POST["addShelter"])) {
+                            addShelter();
                         }
                         ?>
                     </div>
                     <div id="table" class="inactive">
                         <?php
-                        if (!empty($_POST["showAnimals"])) {
-                            displayAnimalTable();
-                        } elseif (!empty($_POST["addAnimal"])) {
-                            addAnimalTable();
-                        }else if (!empty($_POST["modifyAnimals"])) {
-                            modifyAnimalTable();
+                        if (!empty($_POST["showShelters"])) {
+                            displaySheltersTable();
+                        } elseif (!empty($_POST["addShelter"])) {
+                            addShelterTable();
                         }
                         ?>
                     </div>

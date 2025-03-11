@@ -122,11 +122,11 @@
                                 </div>
                             </div>
 
-                            <input type="submit" id="search_valid" name="search_valid" value="Valider">
+                            <input type="submit" id="valid" name="valid" value="Valider">
                         </div>
                     </form>
                 </div>
-                <div class="animaux_trouve col-lg-9 col-xl-9 d-flex justify-content-center flex-wrap"> <?php showAnimals() ?></div>
+                <div class="animaux_trouve col-lg-9 col-xl-9 d-flex justify-content-center flex-wrap"> <?php showAnimals() ?> </div>
             </div>
         </div>
     </main>
