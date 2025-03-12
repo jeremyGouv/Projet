@@ -35,7 +35,7 @@ function addAnimal()
                 <label for="race">Race : </label> <select id="id_race" name="id_race"> $raceOption </select> <br>
                 <label for="name">Nom : </label> <input type="text" id="name" name="name"> <br>
                 <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate"> <br>
-                <label for="sex">Sexe : </label> <select id="sex" name="sex"><option value="Mâle">Mâle</option><option value="Femelle">Femelle</option></select> <br>
+                <label for="sex">Sexe : </label> <select id="sex" name="sex"><option value="Male">Mâle</option><option value="Femelle">Femelle</option></select> <br>
                 <label for="shelter">Etablissement : </label> <select id="id_shelter" name="id_shelter"> $shelterOption </select> <br>
                 <label for="picture">Photo : </label> <input type="file" id="picture" name="picture"> <br>
                 <div id="dsubmit">
@@ -94,7 +94,7 @@ function addAnimalTable()
                         <div class="form-group">
                             <label for="sex">Sexe </label>
                             <select id="sex" name="sex">
-                                <option value="Mâle">Mâle</option>
+                                <option value="Male">Mâle</option>
                                 <option value="Femelle">Femelle</option>
                             </select>
                         </div>
@@ -229,7 +229,7 @@ function displayAnimalTable()
 
 function modifyAnimal()
 {
-    $animalSex = ["Mâle", "Femelle"];
+    $animalSex = ["Male", "Femelle"];
     $animals = getAllAnimals();
     $races = getAllRaces();
     $species = getAllSpecies();
@@ -358,7 +358,7 @@ function modifyAnimalTable()
                             <div class="form-group">
                                 <label for="sex">Sexe </label>
                                 <select id="sex" name="sex">
-                                    <option value="Mâle">Mâle</option>
+                                    <option value="Male">Mâle</option>
                                     <option value="Femelle">Femelle</option>
                                 </select>
                             </div>

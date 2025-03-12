@@ -35,6 +35,7 @@
                                 <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                     <div class="accordion-body">
                                         <select name="id_shelter" id="id_shelter">
+                                            <option value="none" selected> - </option>"
                                             <?php foreach ($shelters as $shelter) {
                                                 echo "<option value=" . $shelter["id_shelter"] . "> $shelter[shelter_name] </option>";
                                             } ?>

@@ -9,7 +9,7 @@
 }
 
 .inactive{
-    display: none;
+    display: none !important;
 }
 
 .filtres_hidden{
