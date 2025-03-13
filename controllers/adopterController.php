@@ -26,9 +26,6 @@ function showAnimals()
         $imgFolder = $animal["id_species"] === 1 ? "dog" : "cat";
         $img = $animal["picture"];
         $species = $animal["id_species"] === 1 ? "chien" : "chat";
-        $animalName = $animal["name"];
-        $shelterName = $animal["shelter_name"];
-        $raceName = $animal["race_name"];
 
         $card = <<<CARD
                     <div class="card p-2 $species ">

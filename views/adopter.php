@@ -21,8 +21,7 @@
 
         <div id="burger_icon"><img src="./assets/img/burger_icon.svg" alt="burger icon" id="burger_icon_img">Filtres</div>
         <div class="container-fluid">
-            <div class="row" id="rowFilter">
-                    
+            <div class="row" id="rowFilter">        
                 <div class="filtres_hidden">
                     <form action="adopter" method="post">
                         <div class="accordion " id="accordion">
@@ -35,7 +34,7 @@
                                 <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                     <div class="accordion-body">
                                         <select name="id_shelter" id="id_shelter">
-                                            <option value="none" selected> - </option>"
+                                            <option value="none" selected> - </option>
                                             <?php foreach ($shelters as $shelter) {
                                                 echo "<option value=" . $shelter["id_shelter"] . "> $shelter[shelter_name] </option>";
                                             } ?>
@@ -79,6 +78,7 @@
                                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                     <div class="accordion-body">
                                         <select name="race" id="race">
+                                            <option value="none" selected> - </option>
                                             <?php foreach ($races as $race) {
                                                 if($race["id_species"] == 1) {
                                                     echo "<option value=" . $race["id_race"] . " id=".$race["id_race"]." class=dog> $race[race_name] </option>";
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
+                            <!-- <div class="accordion-item">
                                 <h2 class="accordion-item">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                         age
@@ -121,7 +121,7 @@
                                         <input type="checkbox" name="senior" id="senior">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <input type="submit" id="valid" name="valid" value="Valider">
                         </div>

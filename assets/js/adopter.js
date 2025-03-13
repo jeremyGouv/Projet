@@ -14,17 +14,17 @@ const filterMale = document.querySelector("#male");
 const filterFemale = document.querySelector("#femelle");
 const filterAnimalName = document.querySelector("#nom_animal");
 const filterSelectRaces = document.querySelector("#race");
-const filterRacesOptions = filterSelectRaces.options;
+let filterRacesOptions = filterSelectRaces.options;
 const filterSelectShelters = document.querySelector("#id_shelter");
 const filterSheltersOptions = filterSelectShelters.options;
 
 const cards = document.querySelectorAll(".card");
 
-
 validFilter.addEventListener("click", (e) => {
     const selectedShelter = filterSheltersOptions[filterSelectShelters.selectedIndex];
+    let selectedRace = filterRacesOptions[filterRacesOptions.selectedIndex].textContent;
 
-/////////////////// SPECIES FILTERS  ///////////////////
+    /////////////////// SPECIES FILTERS  ///////////////////
 
     if ((filterDog.checked && filterCat.checked) || (filterDog.checked == false && filterCat.checked == false)) {
         cats.forEach((cat) => {
@@ -43,14 +43,23 @@ validFilter.addEventListener("click", (e) => {
                 } else if (filterAnimalName.value == "") {
                     cat.style.display = "flex";
 
+                    if (selectedRace.trim() == "-") {
+                        console.log("ok");
+                    }
+
                     if (
                         filterMale.checked &&
                         filterFemale.checked &&
                         (cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) ||
-                            cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name))
+                            cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name)) &&
+                        (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
                     ) {
                         cat.style.display = "flex";
-                    } else if (filterFemale.checked && cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name)) {
+                    } else if (
+                        filterFemale.checked &&
+                        cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name) &&
+                        (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         cat.style.display = "flex";
                     } else if (
                         filterFemale.checked &&
@@ -59,13 +68,22 @@ validFilter.addEventListener("click", (e) => {
                         cat.style.display = "none";
                     } else if (filterMale.checked && cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) == false) {
                         cat.style.display = "none";
-                    } else if (filterMale.checked && cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name)) {
+                    } else if (
+                        filterMale.checked &&
+                        cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) &&
+                        (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         cat.style.display = "flex";
                     } else {
-                        console.log("pas de filtre");
-                        cat.style.display = "flex";
+                        if (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim())) {
+                            cat.style.display = "flex";
+                        } else {
+                            cat.style.display = "none";
+                        }
                     }
                 }
+            } else {
+                cat.style.display = "none";
             }
         });
         dogs.forEach((dog) => {
@@ -88,10 +106,15 @@ validFilter.addEventListener("click", (e) => {
                         filterMale.checked &&
                         filterFemale.checked &&
                         (dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) ||
-                            dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name))
+                            dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name)) &&
+                        (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
                     ) {
                         dog.style.display = "flex";
-                    } else if (filterFemale.checked && dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name)) {
+                    } else if (
+                        filterFemale.checked &&
+                        dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name) &&
+                        (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         dog.style.display = "flex";
                     } else if (
                         filterFemale.checked &&
@@ -100,13 +123,22 @@ validFilter.addEventListener("click", (e) => {
                         dog.style.display = "none";
                     } else if (filterMale.checked && dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) == false) {
                         dog.style.display = "none";
-                    } else if (filterMale.checked && dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name)) {
+                    } else if (
+                        filterMale.checked &&
+                        dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) &&
+                        (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         dog.style.display = "flex";
                     } else {
-                        console.log("pas de filtre");
-                        dog.style.display = "flex";
+                        if (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim())) {
+                            dog.style.display = "flex";
+                        } else {
+                            dog.style.display = "none";
+                        }
                     }
                 }
+            } else {
+                dog.style.display = "none";
             }
         });
     } else if (filterDog.checked && filterCat.checked == false) {
@@ -133,10 +165,15 @@ validFilter.addEventListener("click", (e) => {
                         filterMale.checked &&
                         filterFemale.checked &&
                         (dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) ||
-                            dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name))
+                            (dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name) &&
+                                (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim()))))
                     ) {
                         dog.style.display = "flex";
-                    } else if (filterFemale.checked && dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name)) {
+                    } else if (
+                        filterFemale.checked &&
+                        dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name) &&
+                        (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         dog.style.display = "flex";
                     } else if (
                         filterFemale.checked &&
@@ -145,13 +182,22 @@ validFilter.addEventListener("click", (e) => {
                         dog.style.display = "none";
                     } else if (filterMale.checked && dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) == false) {
                         dog.style.display = "none";
-                    } else if (filterMale.checked && dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name)) {
+                    } else if (
+                        filterMale.checked &&
+                        dog.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) &&
+                        (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         dog.style.display = "flex";
                     } else {
-                        console.log("pas de filtre");
-                        dog.style.display = "flex";
+                        if (selectedRace.trim() == "-" || dog.querySelector("#animalRace").textContent.includes(selectedRace.trim())) {
+                            dog.style.display = "flex";
+                        } else {
+                            dog.style.display = "none";
+                        }
                     }
                 }
+            } else {
+                dog.style.display = "none";
             }
         });
     } else if (filterCat.checked && filterDog.checked == false) {
@@ -175,10 +221,15 @@ validFilter.addEventListener("click", (e) => {
                         filterMale.checked &&
                         filterFemale.checked &&
                         (cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) ||
-                            cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name))
+                            (cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name) &&
+                                (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim()))))
                     ) {
                         cat.style.display = "flex";
-                    } else if (filterFemale.checked && cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name)) {
+                    } else if (
+                        filterFemale.checked &&
+                        cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterFemale.name) &&
+                        (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         cat.style.display = "flex";
                     } else if (
                         filterFemale.checked &&
@@ -187,13 +238,22 @@ validFilter.addEventListener("click", (e) => {
                         cat.style.display = "none";
                     } else if (filterMale.checked && cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) == false) {
                         cat.style.display = "none";
-                    } else if (filterMale.checked && cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name)) {
+                    } else if (
+                        filterMale.checked &&
+                        cat.querySelector("#animalSex").textContent.toLowerCase().includes(filterMale.name) &&
+                        (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim()))
+                    ) {
                         cat.style.display = "flex";
                     } else {
-                        console.log("pas de filtre");
-                        cat.style.display = "flex";
+                        if (selectedRace.trim() == "-" || cat.querySelector("#animalRace").textContent.includes(selectedRace.trim())) {
+                            cat.style.display = "flex";
+                        } else {
+                            cat.style.display = "none";
+                        }
                     }
                 }
+            } else {
+                cat.style.display = "none";
             }
         });
         dogs.forEach((dog) => {
@@ -210,4 +270,39 @@ filterIcon.addEventListener("click", () => {
     filters.classList.toggle("filtres");
 });
 
-//////////////////////////////////////////////////////////////////////    RACE DISPLAY IN FILTERS    //////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////    RACE DISPLAY IN FILTERS    ////////////////////////////////////////////////////////////////
+
+raceAccordion.addEventListener("click", () => {
+    if ((filterCat.checked && filterDog.checked) || (filterCat.checked == false && filterDog.checked == false)) {
+        for (const option of filterRacesOptions) {
+            option.style.display = "block";
+            if (option.value == "1") {
+                option.removeAttribute("selected");
+            }
+            if (option.value == "none") {
+                option.setAttribute("selected", "selected");
+            }
+        }
+    } else if (filterDog.checked) {
+        for (const option of filterRacesOptions) {
+            option.style.display = "block";
+            if (option.value == "1" || option.value == "23") {
+                option.style.display = "none";
+                option.removeAttribute("selected");
+            }
+            if (option.value == "none") {
+                option.setAttribute("selected", "selected");
+            }
+        }
+    } else if (filterCat.checked) {
+        for (const option of filterRacesOptions) {
+            option.style.display = "block";
+            if (option.value != "1" && option.value != "23") {
+                option.style.display = "none";
+            }
+            if (option.value == "1") {
+                option.setAttribute("selected", "selected");
+            }
+        }
+    }
+});
