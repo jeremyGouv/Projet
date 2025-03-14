@@ -13,6 +13,7 @@ if (isset($_POST["update"])) {
 
         updateUser();
 
+        // Update session info
         foreach ($_SESSION as $key => $value) {
             if (isset($_POST[$key])) {
                 $_SESSION[$key] = $_POST[$key];
@@ -26,6 +27,7 @@ if (isset($_POST["update"])) {
 
         updateUserInfos($phone, $adress, $zip_code, $city);
 
+        // Update user info on profil view
         $user = getUserById($_SESSION["id_user"]);
     } else {
         echo "mdp incorrect";

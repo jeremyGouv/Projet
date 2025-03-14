@@ -18,22 +18,6 @@ function getAllAnimals()
     }
 }
 
-//Récuperer animauc filtrés
-function getFilteredAnimals($id_shelter, $name, $chien, $chat, $race, $male, $femelle)
-{
-    $pdo = getConnexion();
-    $sql = "SELECT *, jkl_shelter.shelter_name, jkl_race.race_name, jkl_species.species_name FROM jkl_animals JOIN jkl_shelter ON jkl_animals.id_shelter = jkl_shelter.id_shelter JOIN jkl_race ON jkl_animals.id_race = jkl_race.id_race JOIN jkl_species ON jkl_animals.id_species = jkl_species.id_species WHERE id_shelter = :id_shelter OR name = :name OR id_species = :chien OR id_species = :chat OR id_race = :race OR sex = :male OR sex = :femelle";
-    try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Erreur lors de la récupération des animaux : " . $e->getMessage();
-        return false;
-    }
-}
-
-
 // Récupérer un animal par son ID
 function getAnimalById($id_animal)
 {

@@ -1,27 +1,5 @@
 
 <footer>
-    <!--------------------------------------------------------FOOTER-------------------------------------------------------->
-
-    <!-- <div id="list">
-                <ul>
-                    <a href="/adopter.html">
-                        <li>Adopter</li>
-                    </a>
-                    <a href="/separer.html">
-                        <li>Se séparer</li>
-                    </a>
-                    <a href="/profil.html">
-                        <li>Profil</li>
-                    </a>
-                    <a href="/don.html">
-                        <li>Don</li>
-                    </a>
-                    <a href="/etablissements.html">
-                        <li>Les établissements</li>
-                    </a>
-                </ul>
-            </div> -->
-
     <div id="nomSite">
         <h2>Les Compagnons du Bonheur</h2>
 

@@ -37,22 +37,6 @@ const formAction = document.querySelector(".form-actions");
 //                 </div>                       
 //             </div>`;
 
-// addRow.addEventListener("click", (e) => {
-//     formAction.lastElementChild.insertAdjacentHTML("beforebegin", row);
-//     e.preventDefault();
-// });
-
-// saveAnimal.addEventListener("click", (e) => {
-//     alert("Enregistrement effectué");
-
-//     // let test = document.querySelectorAll(".temporaryRow");
-
-//     // test.forEach((element) => {
-//     //     element.remove();
-//     // });
-
-//     e.preventDefault();
-// });
 
 if (width.matches) {
     cards.classList.add("inactive");
@@ -67,6 +51,19 @@ width.addEventListener("change", () => {
     table.classList.toggle("inactive");
 });
 
+// const form = document.querySelectorAll("form");
+// const animalSpecies = form.querySelectorAll("label[for=id_species]");
+// const animalSpecies = document.querySelectorAll("label[for=id_species]");
+// const selectSpecies = document.querySelectorAll("option");
+
+// console.log(selectSpecies.value);
+// form.forEach((form)=> {
+//     console.log(form);
+// });
+
+// animalSpecies.forEach((label) => {
+//     console.log(label.className);
+// });
 
 
 // //////////////////////////////////////////////////////////////////////    TABLE    //////////////////////////////////////////////////////////////////////
@@ -225,3 +222,4 @@ width.addEventListener("change", () => {
 // //         e.preventDefault();
 // //     });
 // // });
+

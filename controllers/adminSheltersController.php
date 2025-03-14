@@ -158,10 +158,6 @@ if (!empty($_POST["saveShelter"])) {
     createShelter($shelter_name, $adress, $zip_code, $city, $phone, $infos);
 }
 
-if (!empty($_POST["updateShelter"])) {
-    updateAnimal($_POST["id_animal"], $_POST["name"], $_POST["sex"], $_POST["birthdate"], $_POST["picture"], $_POST["id_race"], $_POST["id_shelter"]);
-}
-
 if (!empty($_POST["deleteShelter"])) {
     deleteShelter($_POST["id_shelter"]);
 }

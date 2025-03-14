@@ -13,8 +13,7 @@ if (!empty($_POST)) {
     
     // Récupération des informations de l'utilisateur
     $user = getUserByMail($validatedEmail);
-    
-    // print_r($user);
+
     // Vérification email et mot de passe, création des variables de session
     if (isset($user) && $email === $user["mail"] && password_verify($password, $user["password"])) {
 
@@ -24,19 +23,11 @@ if (!empty($_POST)) {
         $_SESSION["lastname"] = $user["lastname"];
         $_SESSION["mail"] = $user["mail"];
         
-        $userInfo = getUserInfos($validatedEmail);
-        // Création des infos complementaires vide pour pouvoir les mettres à jour via la page profil
-        if($userInfo["id_user_info"] != null){
+        if ($user["id_role"] === 1) {
             header("location:/");
-            
-        }else{
-            createUserInfos($user["id_user"]);
-            header("location:/");
+        }else {
+            header("location:profil");
         }
-        echo "</pre>";
-        
-
-
     }
 }
 

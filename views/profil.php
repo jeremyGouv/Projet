@@ -116,7 +116,7 @@
 						<input type="submit" value="Mettre à jour" name="update">
 						<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
 					</div> -->
-				</div>
+				<!-- </div> -->
 			</form>
 		</div>
 

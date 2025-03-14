@@ -6,6 +6,18 @@ require_once "models/modelShelters.php";
 require_once "models/modelRaces.php";
 require_once "models/modelSpecies.php";
 
+$animals = getAllAnimals();
+$races = getAllRaces();
+$species = getAllSpecies();
+$shelters = getAllShelter();
+
+
+
+
+
+
+
+
 
 function addAnimal()
 {
@@ -244,13 +256,17 @@ function modifyAnimal()
 
     foreach ($species as $specie) {
 
-        // if ($specie["species_name"] == $animal["species_name"]) {
-        // $speciesOption .= "<option value=" . $k . " selected>" . $specie["species_name"] . "</option>";
-        // $k++;
+        // if ($specie["species_name"] == $animals. ["species_name"]) {
+        // $speciesOption .= "<option value=" . $specie["id_species"] . " selected>" . $specie["species_name"] . "</option>";
         // } else {
+
         $speciesOption .= "<option value=" . $specie["id_species"] . ">" . $specie["species_name"] . "</option>";
         // }
     }
+    // foreach ($species as $specie) {
+    //     $selected = $specie["species_name"] === $animal["species_name"] ? "selected" : "";
+    //     $speciesOption .= "<option value=".$specie["id_species"]." $selected   >" . $specie["species_name"] . "</option>";
+    // }
     foreach ($races as $race) {
         // if ($race["race_name"] == $animal["race_name"]) {
         //     $raceOption .= "<option value=" . $i . " selected>" . $race["race_name"] . "</option>";
@@ -282,21 +298,37 @@ function modifyAnimal()
 
     foreach ($animals as $animal) {
 
-        $card = <<<EOD
-                <form action="adminAnimals" method="post" class="formulaire">
-                    <label for="id_animal">ID : </label> <input id="id_animal" name="id_animal" value=$animal[id_animal]> <br>
-                    <label for="id_species">Espèce : </label> <select id="id_species" name="id_species"> $speciesOption </select><br>
-                    <label for="race">Race : </label> <select id="id_race" name="id_race"> $raceOption </select> <br>
-                    <label for="name">Nom : </label> <input type="text" id="name" name="name" value=$animal[name]> <br>
-                    <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate" value=$animal[birthdate]> <br>
-                    <label for="sex">Sexe : </label> <select id="sex" name="sex"> $sexOption </select> <br>
-                    <label for="shelter">Etablissement : </label> <select id="id_shelter" name="id_shelter"> $shelterOption </select> <br>
+        // $card = <<<EOD
+        //         <form action="adminAnimals" method="post" class="formulaire">
+        //             <label for="id_animal">ID : </label> <input id="id_animal" name="id_animal" value=$animal[id_animal]> <br>
+        //             <label for="id_species" class="$animal[species_name]">Espèce : </label> <select id="id_species" name="id_species"> $speciesOption </select><br>
+        //             <label for="race" class="$animal[race_name]">Race : </label> <select id="id_race" name="id_race"> $raceOption </select> <br>
+        //             <label for="name">Nom : </label> <input type="text" id="name" name="name" value=$animal[name]> <br>
+        //             <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate" value=$animal[birthdate]> <br>
+        //             <label for="sex" class="$animal[sex]">Sexe : </label> <select id="sex" name="sex"> $sexOption </select> <br>
+        //             <label for="shelter" class="$animal[shelter_name]">Etablissement : </label> <select id="id_shelter" name="id_shelter"> $shelterOption </select> <br>
+        //             <label for="picture">Photo : </label> <input type="file" id="picture" name="picture"> <br>
+        //             <div id="dsubmit">
+        //                 <input type="submit" value="Enregistrer" name="updateAnimal" id="updateAnimal">
+        //             </div>
+        //         </form>
+        //     EOD;
+
+        $card = '<form action="adminAnimals" method="post" class="formulaire">
+                    <label for="id_animal">ID : </label> <input id="id_animal" name="id_animal" value=' . $animal["id_animal"] . '> <br>
+                    <label for="id_species" class="$animal[species_name]">Espèce : </label> <select id="id_species" name="id_species">' . $speciesOption . '</select><br>
+                    <label for="race" class="$animal[race_name]">Race : </label> <select id="id_race" name="id_race">' . $raceOption . '</select> <br>
+                    <label for="name">Nom : </label> <input type="text" id="name" name="name" value=' . $animal["name"] . '> <br>
+                    <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate" value=' . $animal["birthdate"] . '> <br>
+                    <label for="sex" class="$animal[sex]">Sexe : </label> <select id="sex" name="sex">' . $sexOption . '</select> <br>
+                    <label for="shelter" class="$animal[shelter_name]">Etablissement : </label> <select id="id_shelter" name="id_shelter">' . $shelterOption . '</select> <br>
                     <label for="picture">Photo : </label> <input type="file" id="picture" name="picture"> <br>
                     <div id="dsubmit">
                         <input type="submit" value="Enregistrer" name="updateAnimal" id="updateAnimal">
                     </div>
-                </form>
-            EOD;
+                </form>';
+
+
 
         echo $card;
     }
@@ -384,79 +416,6 @@ function modifyAnimalTable()
     }
 }
 
-function displayShelters()
-{
-    $shelters = getAllShelter();
-
-    foreach ($shelters as $shelter) {
-        $card = <<<CARD
-                    <form action="adminAnimals" method="post" class="formulaire">
-                        <label for="id_shelter">ID : </label> <input type="text" id="id_shelter" name="id_shelter" value=$shelter[id_shelter]> <br>
-                        <label for="shelter_name">Nom : </label> <input type="text" id="shelter_name" name="shelter_name" value='$shelter[shelter_name]'> <br>
-                        <label for="adress">Adresse : </label> <input type="text" id="adress" name="adress" value='$shelter[adress]' > <br>
-                        <label for="zip_code">Code postal : </label> <input type="text" id="zip_code" name="zip_code" value='$shelter[zip_code]'> <br>
-                        <label for="city">Ville : </label> <input type="text" id="city" name="city" value='$shelter[city]'> <br>
-                        <label for="phone">Télephone : </label> <input type="text" id="phone" name="phone" value='$shelter[phone]'> <br>
-                        <label for="infos">Informations : </label> <textarea id="infos" name="infos" cols="40" raw="10">$shelter[infos]</textarea> <br>
-                        <div id="dsubmit">
-                            <input type="submit" value="Supprimer" name="deleteShelter" class="deleteShelter">
-                            <input type="submit" value="Modifier" name="modifyShelter" class="modifyShelter">
-                        </div>
-                    </form>
-                CARD;
-        echo $card;
-    }
-}
-
-function displaySheltersTable()
-{
-    $shelters = getAllShelter();
-
-    foreach ($shelters as $shelter) {
-        $card = <<<CARD
-                    <form id="formShowAnimal" class="formulaire" action="adminAnimals" method="post">
-                        <div id="info">
-                        
-                            <div class="form-group">
-                                <label for="id_shelter">ID</label>
-                                <input type="text" id="id_shelter" name="id_shelter" value=$shelter[id_shelter]>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="shelter_name">Nom</label>
-                                <p>$shelter[shelter_name]</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="adresse">Adresse </label>
-                                <p>$shelter[adress]</p>
-                             </div>
-
-                            <div class="form-group">
-                                <label for="zip_code">Code postale </label>
-                                <p>$shelter[zip_code]</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="city">Ville </label>
-                                <p>$shelter[city]</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Télephone </label>
-                                <p>$shelter[phone]</p>
-                            </div>
-                        </div>
-                            
-                        <div class="form-actions" id="dsubmit">
-                            <input type="submit" value="Supprimer" name="deleteShelter" id="deleteShelter">
-                        </div>
-                    </form>
-            CARD;
-        echo $card;
-    }
-}
-
 
 if (!empty($_POST["saveAnimal"])) {
 
@@ -475,13 +434,6 @@ if (!empty($_POST["updateAnimal"])) {
     updateAnimal($_POST["id_animal"], $_POST["name"], $_POST["sex"], $_POST["birthdate"], $_POST["picture"], $_POST["id_race"], $_POST["id_shelter"]);
 }
 
-if (!empty($_POST["deleteShelter"])) {
-    // deleteShelter($_POST["id_shelter"]);
-}
-
-if (!empty($_POST["modifyShelter"])) {
-    updateShelter($_POST["id_shelter"], $_POST["shelter_name"], $_POST["adress"], $_POST["zip_code"], $_POST["city"], $_POST["infos"], $_POST["phone"]);
-}
 
 
 

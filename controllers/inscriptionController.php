@@ -25,10 +25,17 @@ if (isset($_POST["subscribe"]) && !empty($_POST["firstname"]) && !empty($_POST["
         } else {
             $id_role = 2;
         }
+
         // création d'un utilisateur et redirection vers la page d'accueil
         createUser($firstname, $lastname, $validatedEmail, $hashedPassword, $id_role);
 
+        // Création des infos complementaires vide pour pouvoir les mettres à jour via la page profil
+        $user = getUserByMail($validatedEmail);        
+        createUserInfos($user["id_user"]);
+        
         header("location:/");
+            
+        
     } else {
         echo "erreur";
     }

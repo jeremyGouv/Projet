@@ -56,7 +56,6 @@ function getUserInfos($email)
 {
     $pdo = getConnexion();
     $sql = "SELECT * FROM jkl_users left join jkl_users_infos on jkl_users.id_user = jkl_users_infos.id_user where jkl_users.mail = :mail";
-    // $sql = "SELECT * FROM jkl_users where mail = :mail";
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':mail', $email, PDO::PARAM_STR);
