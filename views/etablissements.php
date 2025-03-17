@@ -20,12 +20,7 @@
                 <h2>Nos établissements</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3 offset-lg-1">
-                    <!-- <div class="pt-lg-3" id="search">
-                        <label for="searchCity">Ville : </label>
-                        <input type="text" name="searchCity" id="searchCity">
-                        <button type="button">Recherche</button>
-                    </div> -->
+                <div class="col-sm-12 col-lg-3 offset-lg-1 p-0">
                     <div id="etablissements"><!-- Les etablissements s'affichent ici --></div>
                 </div>
 

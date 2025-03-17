@@ -4,7 +4,7 @@
         <h2>Les Compagnons du Bonheur</h2>
 
         <div id="mentions">
-            <a href="/mentions_legales.html">
+            <a href="/mentionsLegales">
                 <p>Mentions légales</p>
             </a>
         </div>
