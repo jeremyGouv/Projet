@@ -22,6 +22,7 @@
         <div class="container col-lg-3">
             <div class="formulaire">
                 <h1>Connexion</h1>
+                <div id="error"> <?= $error; ?> </div>
                 <form name="connexion" id="connexion" method="post" action="connexion">
                     <div>
                         <label for="mail">Email</label>
@@ -30,7 +31,7 @@
                         <input type="password" id="password" name="password" required>
                     </div>
                     <div id="dsubmit">
-                        <input type="submit" value="Connexion">
+                        <input type="submit" id="submit" value="Connexion">
                     </div>
                 </form>
             </div>
@@ -44,7 +45,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <!-- <script src="assets/js/connexion.js"></script> -->
+    <script src="assets/js/connexion.js"></script>
 </body>
 
 </html>

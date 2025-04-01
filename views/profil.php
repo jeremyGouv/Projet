@@ -18,10 +18,12 @@
 	<?php include "templates/templateHeader.php"; ?>
 
 	<main>
+		<h1>Votre profil</h1>
 		<div class="container col-lg-8 col-md-8">
 			<form name="profil" id="user_profil" method="post" action="profil">
 				<div class="formulaire">
 					<fieldset>
+						<div id="error"> <?= $message = !empty($change) ? $change : $error; ?> </div>
 						<legend>Profil adoptant</legend>
 						<label for="civilite">Civilité</label>
 						<select name="civilite" id="civilite">
@@ -39,13 +41,13 @@
 						<input type="mail" id="mail" name="mail" value=<?= $_SESSION["mail"] ?> >
  
 						<label for="phone">Téléphone</label>
-						<input type="tel" id="phone" name="phone" value='<?= $user["phone"] = $user["phone"] ?? ""; ?>' >
+						<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" value='<?= $user["phone"] = $user["phone"] ?? ""; ?>' >
 
 						<label for="adress">Numéro et nom de voie</label>
 						<input type="text" id="adress" name="adress" value='<?= $user["adress"] = $user["adress"] ?? ""; ?>' >
 
 						<label for="zip_code">Code Postal</label>
-						<input type="text" id="zip_code" name="zip_code" value=<?= $user["zip_code"] = $user["zip_code"] ?? ""; ?> >
+						<input type="text" id="zip_code" name="zip_code" pattern="[0-9]{5}" value=<?= $user["zip_code"] = $user["zip_code"] ?? ""; ?> >
 
 						<label for="city">Ville</label>
 						<input type="text" id="city" name="city" value='<?= $user["city"] = $user["city"] ?? ""; ?>' >
@@ -54,69 +56,11 @@
 						<input type="password" id="password" name="password" required>
 
 						<div class="col-lg-4 col-md-5" id="dsubmit">
-							<input type="submit" value="Mettre à jour" name="update">
+							<input type="submit" value="Mettre à jour" name="update" id="update">
 							<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
 						</div>
 					</fieldset>
 				</div>
-
-				<!-- <div class="formulaire">
-					<fieldset>
-						<legend>Animal déjà possédé</legend>
-						<label for="aucun_animal">Aucun animal</label>
-						<input type="checkbox" id="aucun_animal" name="ownedNone" value="none" class="checkbox">
-
-						<label for="chienPossede">Un chien ou plus</label>
-						<input type="checkbox" id="chienPossede" name="ownedDog" value="dog" class="checkbox">
-
-						<label for="chatPossede">Un chat ou plus</label>
-						<input type="checkbox" id="chatPossede" name="ownedCat" value="cat" class="checkbox">
-					</fieldset>
-				</div>
-
-				<div class="formulaire">
-					<fieldset>
-						<legend>Vos préférences</legend>
-						<h5>Quel animal souhaitez-vous adopter ?</h5>
-
-						<label for="typeChien">Chien</label>
-						<input type="radio" id="typeChien" name="animalType" value="dog" class="radio">
-
-						<label for="typeChat">Chat</label>
-						<input type="radio" id="typeChat" name="animalType" value="cat" class="radio">
-
-						<h5>Âge maximum de l'animal?</h5>
-
-						<label for="peuImporte">Peu importe</label>
-						<input type="radio" id="peuImporte" name="agePreference" value="none" class="radio">
-
-						<label for="junior">Junior</label>
-						<input type="radio" id="junior" name="agePreference" value="junior" class="radio">
-
-						<label for="adulte">Adulte</label>
-						<input type="radio" id="adulte" name="agePreference" value="adult" class="radio">
-
-						<label for="senior">Senior</label>
-						<input type="radio" id="senior" name="agePreference" value="senior" class="radio">
-
-
-						<label for="pourquoi_adopter">Pourquoi souhaitez-vous adopter ?</label>
-						<textarea id="pourquoi_adopter" name="pourquoi_adopter" rows="5" cols="33"></textarea>
-
-						<label for="password">Confirmez les changements avec votre mot de passe</label>
-						<input type="password" id="password" name="password" required>
-
-						<div class="col-lg-4 col-md-5" id="dsubmit">
-							<input type="submit" value="Mettre à jour" name="update">
-							<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
-						</div>
-						
-					</fieldset> -->
-					<!-- <div class="col-lg-4 col-md-5" id="dsubmit">
-						<input type="submit" value="Mettre à jour" name="update">
-						<input type="submit" value="Supprimer mon compte" name="deleteAccount" id="delete">
-					</div> -->
-				<!-- </div> -->
 			</form>
 		</div>
 

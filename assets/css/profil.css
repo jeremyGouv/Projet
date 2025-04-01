@@ -73,3 +73,11 @@ form legend{
     align-self: flex-start;
     margin-left: 1rem;
 }
+
+#error{
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+

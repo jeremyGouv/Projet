@@ -14,7 +14,7 @@
     <main>
         <div class="container col-lg-6 col-md-8">
             <form class="formulaire" action="deleteAccount" method="post">
-                <h3>Attention <?= $_SESSION["firstname"] ?>, voulez-vous vraiment supprimer votre compte ? </h1>
+                <h1>Attention <?= $_SESSION["firstname"] ?>, voulez-vous vraiment supprimer votre compte ? </h1>
                 <p>Confirmez avec votre mot de passe</p>
                 <label for="password">Entrez votre mot de passe : </label>
                 <input type="password" name="password" id="password">

@@ -10,14 +10,6 @@ $shelters = getAllShelter();
 $races = getAllRaces();
 $species = getAllSpecies();
 
-
-// echo "<pre>";
-// print_r($shelters);
-// print_r($animals);
-// print_r($races);
-// print_r($species);
-// echo "</pre>";
-
 function showAnimals()
 {
     $animals = getAllAnimals();
@@ -29,7 +21,7 @@ function showAnimals()
 
         $card = <<<CARD
                     <div class="card p-2 $species ">
-                                <a href="information?id_animal=$animal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="photo_animal"></a>
+                                <a href="information?id_animal=$animal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="photo_animal" width="300" height="225"></a>
                                 <div class="card-body">
                                     <h5 class="card-title" id="animalName"> $animal[name] </h5>
                                     <p class="card-text" id="shelterName"> $animal[shelter_name] </p>

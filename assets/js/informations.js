@@ -54,8 +54,7 @@ let cities = {
     },
 };
 
-//////////////////////////////////////////////////////////////////////    MAP    //////////////////////////////////////////////////////////////////////
-
+// Affichage de la carte et d'un marqueur en fonction de la ville de l'animal selectionné
 for (let [city, coordinates] of Object.entries(cities)) {
     if (ville == city) {
         let coords = [coordinates.lat, coordinates.lon];

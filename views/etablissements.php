@@ -15,10 +15,8 @@
     <?php include "templates/templateHeader.php"; ?>
 
     <main>
+    <h1>Nos établissements</h1>
         <div class="container-fluid mt-5">
-            <div class="row text-center">
-                <h2>Nos établissements</h2>
-            </div>
             <div class="row">
                 <div class="col-sm-12 col-lg-3 offset-lg-1 p-0">
                     <div id="etablissements"><!-- Les etablissements s'affichent ici --></div>

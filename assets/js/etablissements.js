@@ -1,4 +1,6 @@
-// let ville = document.querySelector("#city").textContent;
+let lieu = document.querySelector("#etablissements");
+
+// Tableaux associatifs avec le nom des refuges
 let cities = {
     Montuçon: {
         lat: 46.369,
@@ -79,7 +81,7 @@ let cities = {
         infos: "Ouvert tous les jours, sauf le mercredi, de 13h à 16h."
     },
 };
-let lieu = document.querySelector("#etablissements");
+
 
 
 //////////////////////////////////////////////////////////////////////    MAP    //////////////////////////////////////////////////////////////////////
@@ -97,12 +99,13 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
-//////////////////////////////////////////////////////////////////////    MAP    //////////////////////////////////////////////////////////////////////
 
+// Affichage informations etablissements
 for (let [city, info] of Object.entries(cities)) {
     lieu.innerHTML += `<div id="${city}" class="lieuTrouve"><h5>${city}</h5><p>${info.phone}</p><p><small>${info.infos}</small></p></div>`;
 }
 
+// Ajout de marqueurs et de pop-up
 for (let [city, infos] of Object.entries(cities)) {
     let coords = [infos.lat, infos.lon];
     let popup = `<div><h5>${city}</h5><p>${infos.phone}</p><p>${infos.infos}</p></div>`;

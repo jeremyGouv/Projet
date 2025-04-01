@@ -15,6 +15,7 @@
     <?php include "templates/templateHeader.php"; ?>
 
     <main>
+        <h1>Informations sur l'animal</h1>
         <div class="container-fluid">
             <div class="row mt-lg-5">
                 <div class="col-lg-3 offset-lg-1 mt-lg-0" id="photo">

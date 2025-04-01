@@ -18,7 +18,7 @@
     <?php include "templates/templateHeader.php"; ?>
 
     <main>
-
+        <h1>Retrouvez nos petits compagnons à l'adoption</h1>
         <div id="burger_icon"><img src="./assets/img/burger_icon.svg" alt="burger icon" id="burger_icon_img">Filtres</div>
         <div class="container-fluid">
             <div class="row" id="rowFilter">        

@@ -22,11 +22,11 @@
                 <form name="inscription" id="inscription" method="post" action="inscription">
                     <div id="dlastname">
                         <label for="lastname">Nom</label>
-                        <input type="text" id="lastname" name="lastname" required>
+                        <input type="text" id="lastname" name="lastname" pattern="[a-zA-Z\s'-]+" required>
                     </div>
                     <div id="dfirstname">
                         <label for="firstname">Prénom</label>
-                        <input type="text" id="firstname" name="firstname" required>
+                        <input type="text" id="firstname" name="firstname" pattern="[a-zA-Z\s'-]+" required>
                     </div>
                     <div id="dmail">
                         <label for="email">Email</label>
@@ -34,7 +34,7 @@
                     </div>
                     <div id="dpassword">
                         <label for="password">Mot de passe</label>
-                        <input type="password" id="password" name="password" pattern="(\d{1,n})([a-z]{1,n})([A-Z]{1,n}).{8,}" title="wrong password" required>
+                        <input type="password" id="password" name="password" required>
                     </div>
                     <div class="dsubmit">
                         <input type="submit" id="submit" name="subscribe" value="S'inscrire">

@@ -4,14 +4,22 @@ session_start();
 require_once "models/modelUser.php";
 
 $user = getUserById($_SESSION["id_user"]);
-
+$error = "";
+$change = "";
 
 if (isset($_POST["update"])) {
     $user = getUserById($_SESSION["id_user"]);
 
-    if (password_verify($_POST["password"], $user["password"])) {
+    $password = validData($_POST["password"]);
 
-        updateUser();
+    if (password_verify($password, $user["password"])) {
+
+        $lastname = validData($_POST["lastname"]);
+        $firstname = validData($_POST["firstname"]);
+        $mail = validData($_POST["mail"]);
+
+        // Update user info
+        updateUser($_SESSION["id_user"], $lastname, $firstname, $mail);
 
         // Update session info
         foreach ($_SESSION as $key => $value) {
@@ -29,8 +37,10 @@ if (isset($_POST["update"])) {
 
         // Update user info on profil view
         $user = getUserById($_SESSION["id_user"]);
+
+        $change = "Changements effectués.";
     } else {
-        echo "mdp incorrect";
+        $error = "Mot de passe incorrect.";
     }
 }
 

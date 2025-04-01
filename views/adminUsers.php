@@ -18,13 +18,8 @@
     <?php include "templates/templateHeader.php" ?>
 
     <main>
-
+        <h1 class="text-center">Espace administrateur</h1>
         <div class="container-fluid m-0 p-0">
-            <div class="row mt-4 w-100">
-                <div class="col-12">
-                    <h1 class="text-center">Espace administrateur</h1>
-                </div>
-            </div>
             <div class="row w-100">
                 <div class="col-12">
                     <h2 class="text-center">Gestion des utilisateurs</h2>

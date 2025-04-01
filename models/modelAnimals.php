@@ -36,10 +36,10 @@ function getAnimalById($id_animal)
 }
 
 // Créer un nouvel animal
-function createAnimal($name, $sex, $birthdate, $picture, $id_race, $id_user, $id_shelter, $id_species)
+function createAnimal($name, $sex, $birthdate, $picture, $id_race, $id_shelter, $id_species)
 {
     $pdo = getConnexion();
-    $sql = "INSERT INTO jkl_animals (name, sex, birthdate, picture, id_race, id_user, id_shelter, id_species) VALUES (:name, :sex, :birthdate, :picture, :id_race, null, :id_shelter, :id_species)";
+    $sql = "INSERT INTO jkl_animals (name, sex, birthdate, picture, id_race, id_shelter, id_species) VALUES (:name, :sex, :birthdate, :picture, :id_race, :id_shelter, :id_species)";
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
@@ -47,7 +47,6 @@ function createAnimal($name, $sex, $birthdate, $picture, $id_race, $id_user, $id
         $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
         $stmt->bindParam(':picture', $picture, PDO::PARAM_STR);
         $stmt->bindParam(':id_race', $id_race, PDO::PARAM_INT);
-        // $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
         $stmt->bindParam(':id_shelter', $id_shelter, PDO::PARAM_INT);
         $stmt->bindParam(':id_species', $id_species, PDO::PARAM_INT);
         

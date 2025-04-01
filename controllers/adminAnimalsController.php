@@ -13,12 +13,6 @@ $shelters = getAllShelter();
 
 
 
-
-
-
-
-
-
 function addAnimal()
 {
     $races = getAllRaces();
@@ -427,13 +421,12 @@ if (!empty($_POST["saveAnimal"])) {
     $id_shelter = validData($_POST["id_shelter"]);
     $id_species = validData($_POST["id_species"]);
 
-    createAnimal($name, $sex, $birthdate, $picture, $id_race, "", $id_shelter, $id_species);
+    createAnimal($name, $sex, $birthdate, $picture, $id_race, $id_shelter, $id_species);
 }
 
 if (!empty($_POST["updateAnimal"])) {
     updateAnimal($_POST["id_animal"], $_POST["name"], $_POST["sex"], $_POST["birthdate"], $_POST["picture"], $_POST["id_race"], $_POST["id_shelter"]);
 }
-
 
 
 

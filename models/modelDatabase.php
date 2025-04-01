@@ -16,7 +16,7 @@ function getConnexion()
     }
 }
 
-// Vérifier les données des formulaires
+// Nettoyer les données des formulaires
 function validData($data)
 {
     $data = trim($data);

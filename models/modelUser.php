@@ -3,7 +3,7 @@ require_once "models/modelDatabase.php";
 
 
 
-// Récupérer tous les utilisateurs (id, nom, et prenom uniquement)
+// Récupérer tous les utilisateurs
 function getAllUsers()
 {
     $pdo = getConnexion();
@@ -116,19 +116,17 @@ function createUserInfos($id_user)
 
 
 // Mettre à jour les informations d'inscription d'un utilisateur
-function updateUser()
+function updateUser($id_user, $firstname, $lastname, $mail)
 {
     // {$id_user, $firstname, $lastname, $email, $password
     $pdo = getConnexion();
     $sql = "UPDATE jkl_users SET firstname = :firstname, lastname = :lastname, mail = :mail where id_user = :id_user";
     try {
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id_user', $_SESSION["id_user"], PDO::PARAM_INT);
-        $stmt->bindParam(':firstname', $_POST["firstname"], PDO::PARAM_STR);
-        $stmt->bindParam(':lastname', $_POST["lastname"], PDO::PARAM_STR);
-        $stmt->bindParam(':mail', $_POST["mail"], PDO::PARAM_STR);
-        // $stmt->bindParam(':password', $_POST["password"], PDO::PARAM_STR);
-
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $stmt->bindParam(':firstname', $firstname, PDO::PARAM_STR);
+        $stmt->bindParam(':lastname', $lastname, PDO::PARAM_STR);
+        $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
         return $stmt->execute();
     } catch (PDOException $e) {
         echo "Erreur lors de la mise à jour de l'utilisateur : " . $e->getMessage();
