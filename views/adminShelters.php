@@ -23,6 +23,9 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-center">Gestion des refuges</h2>
+                    <div id="message"> <?= $message = !empty($add) ? $add : ""; ?> </div>
+                    <div id="message"> <?= $message = !empty($delete) ? $delete : ""; ?> </div>
+                    <div id="message"> <?= $message = !empty($update) ? $update : ""; ?> </div>
                 </div>
             </div>
             <div class="row m-0 p-0 justify-content-center">

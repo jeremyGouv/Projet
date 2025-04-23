@@ -4,6 +4,7 @@ session_start();
 require_once "models/modelUser.php";
 
 $users = getAllUsers();
+$delete = "";
 
 // Affichage des utilisateurs en mobile
 function displayUsers($users)
@@ -22,7 +23,7 @@ function displayUsers($users)
                             <label for="zip_code">Code Postal : </label> <p>$user[zip_code]</p>  <br>
                             <label for="city">Ville : </label> <p>$user[city]</p> <br>
                             <div id="dsubmit">
-                                <input type="submit" value="Supprimer" name="deleteUser" id="deleteUser">
+                                <input type="submit" value="Supprimer" name="deleteUser" class="deleteUser">
                             </div>
                         </form>
             EOD;
@@ -40,12 +41,12 @@ function displayUsersTable($users)
                         <div id="info">
                             <div class="form-group">
                                 <label for="id_role">Role</label>
-                                <p>$user[id_role]</p>
+                                <input type="text" id="id_role" name="id_role" value=$user[id_role] readonly>
                             </div>
 
                             <div class="form-group">
                                 <label for="id_user">ID</label>
-                                <input type="text" id="id_user" name="id_user" value=$user[id_user]>
+                                <input type="text" id="id_user" name="id_user" value=$user[id_user] readonly>
                             </div>
 
                             <div class="form-group">
@@ -85,7 +86,7 @@ function displayUsersTable($users)
                         </div>
                             
                         <div class="form-actions" id="dsubmit">
-                            <input type="submit" value="Supprimer" name="deleteUser" id="deleteUser">
+                            <input type="submit" value="Supprimer" name="deleteUser" class="deleteUser">
                         </div>
                     </form>
             EOD;
@@ -94,11 +95,13 @@ function displayUsersTable($users)
     }
 }
 
-
+//Suppression d'un utilisateur
 if (!empty($_POST["deleteUser"])) {
     deleteUserInfos($_POST["id_user"]);
     deleteUser($_POST["id_user"]);
+    $delete = "Utilisateur supprimé";
 }
+
 
 include "views/adminUsers.php";
 

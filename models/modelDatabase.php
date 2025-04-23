@@ -19,9 +19,8 @@ function getConnexion()
 // Nettoyer les données des formulaires
 function validData($data)
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    $dataTrim = trim($data);
+    $dataStrip = stripslashes($dataTrim);
+    $finalData = htmlspecialchars($dataStrip);
+    return $finalData;
 }
-

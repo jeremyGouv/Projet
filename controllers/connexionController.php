@@ -5,7 +5,6 @@ require_once "models/modelUser.php";
 
 $error = "";
 
-
 // Check if the form has been submitted (if $_POST is not empty).
 if (!empty($_POST)) {
 

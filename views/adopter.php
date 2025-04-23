@@ -105,24 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="accordion-item">
-                                <h2 class="accordion-item">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                        age
-                                    </button>
-                                </h2>
-                                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <label for="junior">Junior</label>
-                                        <input type="checkbox" name="junior" id="junior"> <br>
-                                        <label for="adulte">Adulte</label>
-                                        <input type="checkbox" name="adulte" id="adulte"> <br>
-                                        <label for="senior">Sénior</label>
-                                        <input type="checkbox" name="senior" id="senior">
-                                    </div>
-                                </div>
-                            </div> -->
-
+                            
                             <input type="submit" id="valid" name="valid" value="Valider">
                         </div>
                     </form>

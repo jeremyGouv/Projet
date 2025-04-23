@@ -48,6 +48,16 @@
                 quatre pattes.
             </p>
         </div>
+
+        <div class="consent">
+            <p class="consent-title"> Ici, votre vie privée est respectée 🍪 </p>
+            <p>J'utilise des cookies pour que vous puissiez avoir une navigation plus fluide et du contenu personnalisé. En cliquant sur « Tout accepter », vous consentez à mon utilisation des cookies.</p>    
+            <div>
+                <button class="consent-btn">Ne pas accepter</button>
+                <button class="consent-btn">Tout accepter</button>
+            </div>
+        </div>
+
     </main>
 
     <?php include "templates/templateFooter.php"; ?>

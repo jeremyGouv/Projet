@@ -22,3 +22,17 @@ img{
     padding: 1rem;
 }
 
+.consent{
+    width: 30em;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    background-color: #fffaf1;
+    border: black 1px solid;
+    border-radius: 10px;
+    padding: 1rem;
+}
+.consent-title{
+    font-weight: bold;
+    
+}

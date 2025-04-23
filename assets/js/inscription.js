@@ -5,24 +5,27 @@ let firstname = document.querySelector("#firstname");
 let email = document.querySelector("#email");
 
 
-lastname.addEventListener("keydown", (e)=>{    
-    if(!isNaN(e.key)){
-        alert("Ne peux contenir de chiffres.");
-        e.preventDefault(); 
+
+lastname.addEventListener("keydown", (e) => {
+    if (!isNaN(e.key)) {
+        alert("Ne peux pas contenir de chiffres.");
+        e.preventDefault();
     }
 });
-firstname.addEventListener("keydown", (e)=>{    
-    if(!isNaN(e.key)){
-        alert("Ne peux contenir de chiffres.");
-        e.preventDefault(); 
+firstname.addEventListener("keydown", (e) => {
+    if (!isNaN(e.key)) {
+        alert("Ne peux pas contenir de chiffres.");
+        e.preventDefault();
     }
 });
-submit.addEventListener("click", (e)=>{    
-    if(patternName.test(lastname.value) === false){
+submit.addEventListener("click", (e) => {
+    if (patternName.test(lastname.value) === false) {
         alert("erreur de format de nom.");
-        e.preventDefault(); 
-    }else if(patternName.test(firstname.value) === false){
+        e.preventDefault();
+    } else if (patternName.test(firstname.value) === false) {
         alert("erreur de format de prénom.");
-        e.preventDefault(); 
+        e.preventDefault();
     }
 });
+let test = sessionStorage.getItem("consent");
+console.log(test);

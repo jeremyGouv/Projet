@@ -23,6 +23,7 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-center">Gestion des animaux</h2>
+                    <div id="message"> <?= $message = $delete ?> </div>
                 </div>
             </div>
             <div class="row m-0 p-0 justify-content-center">

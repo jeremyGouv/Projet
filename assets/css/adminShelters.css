@@ -109,7 +109,7 @@ input{
     display: flex;
     align-items: center;
     width: 100%;
-    /* background-color: rgb(235, 235, 235); */
+    background-color: rgb(235, 235, 235);
     border-radius: 10px;
     margin: 0.5rem 0 0.5rem 0;
 }
@@ -163,4 +163,10 @@ textarea{
 .inactive{
     display: none !important;   
     
+}
+
+#message{
+    text-align: center;
+    font-weight: bold;
+    color: red;
 }

@@ -19,7 +19,7 @@ if (isset($_POST["update"])) {
         $mail = validData($_POST["mail"]);
 
         // Update user info
-        updateUser($_SESSION["id_user"], $lastname, $firstname, $mail);
+        updateUser($_SESSION["id_user"], $firstname, $lastname, $mail);
 
         // Update session info
         foreach ($_SESSION as $key => $value) {

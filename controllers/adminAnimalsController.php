@@ -6,6 +6,7 @@ require_once "models/modelShelters.php";
 require_once "models/modelRaces.php";
 require_once "models/modelSpecies.php";
 
+$delete = "";
 $animals = getAllAnimals();
 $races = getAllRaces();
 $species = getAllSpecies();
@@ -75,7 +76,7 @@ function addAnimalTable()
     }
 
     $table = <<<EOD
-               <form id="formShowAnimal" class="formulaire" action="adminAnimals" method="post">
+               <form  class="formulaire" action="adminAnimals" method="post">
                     <div id="infoadd">
                         <div class="form-group">
                             <label for="id_species">Espèce </label>
@@ -134,7 +135,7 @@ function displayAnimal()
     foreach ($animals as $animal) {
         $card = <<<EOD
                     <form action="adminAnimals" method="post" class="formulaire">
-                        <label for="id_animal">ID : </label> <input type="text" id="id_animal" name="id_animal" value=$animal[id_animal]> <br>
+                        <label for="id_animal">ID : </label> <input type="text" id="id_animal" name="id_animal" value=$animal[id_animal] readonly> <br>
                         <label for="id_species">Espèce : </label> <p> $animal[species_name] </p> <br>
                         <label for="id_race">Race : </label> <p> $animal[race_name] </p> <br>
                         <label for="name">Nom : </label> <p> $animal[name] </p> <br>
@@ -165,7 +166,7 @@ function displayAnimalTable()
                         
                             <div class="form-group">
                                 <label for="id_animal">ID</label>
-                                <input type="text" id="id_animal" name="id_animal" value=$animal[id_animal]>
+                                <input type="text" id="id_animal" name="id_animal" value=$animal[id_animal] readonly>
                             </div>
 
                             <div class="form-group">
@@ -225,7 +226,7 @@ function displayAnimalTable()
                         </div>
                             
                         <div class="form-actions" id="dsubmit">
-                            <input type="submit" value="Supprimer" name="deleteAnimal" id="deleteAnimal">
+                            <input type="submit" value="Supprimer" name="deleteAnimal" class="deleteAnimal">
                         </div>
                     </form>
             EOD;
@@ -341,15 +342,25 @@ function modifyAnimalTable()
 
 
 
+
     foreach ($races as $race) {
         $raceOption .= "<option value=" . $race["id_race"] . ">" . $race["race_name"] . "</option>";
     }
     foreach ($species as $species) {
-        $speciesOption .= "<option value=" . $species["id_species"] . ">" . $species["species_name"] . "</option>";
+        $selected = "";
+        foreach ($animals as $animal) {
+            if ($species["species_name"] == $animal["species_name"]) {
+                $selected = "selected";
+            } else {
+                $selected = "";
+            }
+        }
+        $speciesOption .= "<option value=" . $species["id_species"] .  $selected . ">" . $species["species_name"] . "</option>";
     }
     foreach ($shelters as $shelter) {
         $shelterOption .= "<option value='" . $shelter["id_shelter"] . "'>" . $shelter["shelter_name"] . "</option>";
     }
+
 
     foreach ($animals as $animal) {
         $species = getAllSpecies();
@@ -427,6 +438,17 @@ if (!empty($_POST["saveAnimal"])) {
 if (!empty($_POST["updateAnimal"])) {
     updateAnimal($_POST["id_animal"], $_POST["name"], $_POST["sex"], $_POST["birthdate"], $_POST["picture"], $_POST["id_race"], $_POST["id_shelter"]);
 }
+
+if (!empty($_POST["deleteAnimal"])) {
+    deleteAnimal($_POST["id_animal"]);
+    $delete = "Suppression réussie";
+}
+
+
+foreach ($animals as $animal) {
+    echo $animal["id_species"] . $animal["species_name"];
+}
+
 
 
 

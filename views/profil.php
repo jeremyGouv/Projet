@@ -23,7 +23,7 @@
 			<form name="profil" id="user_profil" method="post" action="profil">
 				<div class="formulaire">
 					<fieldset>
-						<div id="error"> <?= $message = !empty($change) ? $change : $error; ?> </div>
+						<div id="message"> <?= $message = !empty($change) ? $change : $error; ?> </div>
 						<legend>Profil adoptant</legend>
 						<label for="civilite">Civilité</label>
 						<select name="civilite" id="civilite">

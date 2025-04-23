@@ -23,6 +23,7 @@
             <div class="row w-100">
                 <div class="col-12">
                     <h2 class="text-center">Gestion des utilisateurs</h2>
+                    <div id="message"> <?= $message = $delete ?> </div>
                 </div>
             </div>
             <div class="row">
@@ -30,15 +31,12 @@
                     <!-- Les utilisateurs s'affiche ici -->
                     <div id="cards" class="d-flex justify-content-center flex-wrap">
                         <?php 
-
                             displayUsers($users);
                         ?>
                     </div>
                     <div id="table" class="inactive">
                         <?php 
-
                             displayUsersTable($users);
-
                         ?>
                     </div>
                 </div>

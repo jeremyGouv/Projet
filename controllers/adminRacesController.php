@@ -4,6 +4,10 @@ session_start();
 require_once "models/modelRaces.php";
 require_once "models/modelSpecies.php";
 
+$add = "";
+$delete = "";
+$update = "";
+
 
 function addRace()
 {
@@ -55,7 +59,7 @@ function displayRaces()
 
         $card = <<<CARD
                     <form action="adminRaces" method="post" class="formulaire">
-                        <label for="id_race">ID : </label> <input type="text" id="id_race" name="id_race" value=$race[id_race]> <br>
+                        <label for="id_race">ID : </label> <p>$race[id_race]</p> <br>
                         <label for="race_name">Nom : </label> <input type="text" id="race_name" name="race_name" value='$race[race_name]'> <br>
                         <label for="id_species">Espèce : </label>
                         <select id="id_species" name="id_species">                        
@@ -85,7 +89,7 @@ function displayRacesTable()
 
         $card = <<<CARD
                     <form action="adminRaces" method="post" class="formulaire" id="updateTable">
-                        <label for="id_race">ID : </label> <input type="text" id="id_race" name="id_race" value=$race[id_race]> <br>
+                        <label for="id_race">ID : </label> <input type="text" id="id_race" name="id_race" value='$race[id_race]' readonly> <br>
                         <label for="race_name">Nom : </label> <input type="text" id="race_name" name="race_name" value='$race[race_name]'> <br>
                         <label for="id_species">Espèce : </label>
                         <select id="id_species" name="id_species">                        
@@ -107,8 +111,8 @@ function displayRacesTable()
 if (!empty($_POST["saveRace"])) {
     $race_name = validData($_POST["race_name"]);
     $id_species = validData($_POST["id_species"]);
-
     createRace($race_name, $id_species);
+    $add = "Race ajoutée";
 }
 
 
@@ -118,11 +122,13 @@ if (!empty($_POST["updateRace"])) {
     $id_species = validData($_POST["id_species"]);
 
     updateRace($id_race, $race_name, $id_species);
+    $update = "Race modifiée";
     
 }
 
 if (!empty($_POST["deleteRace"])) {
     deleteRace($_POST["id_race"]);
+    $delete = "Race supprimée";
 }
 
 

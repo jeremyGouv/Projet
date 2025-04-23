@@ -3,7 +3,9 @@ session_start();
 
 require_once "models/modelShelters.php";
 
-
+$add = "";
+$delete = "";
+$update = "";
 
 function addShelter()
 {
@@ -26,7 +28,7 @@ function addShelter()
 function addShelterTable()
 {
     $card = <<<CARD
-                <form id="formShowAnimal" class="formulaire" action="adminShelters" method="post">
+                <form class="formulaire" action="adminShelters" method="post">
                         <div id="infoadd">
                             <div class="form-group">
                                 <label for="shelter_name">Nom</label>
@@ -73,7 +75,7 @@ function displayShelters()
     foreach ($shelters as $shelter) {
         $card = <<<CARD
                     <form action="adminShelters" method="post" class="formulaire">
-                        <label for="id_shelter">ID : </label> <input type="text" id="id_shelter" name="id_shelter" value=$shelter[id_shelter]> <br>
+                        <label for="id_shelter">ID : </label> <p>$shelter[id_shelter]</p> <br>
                         <label for="shelter_name">Nom : </label> <input type="text" id="shelter_name" name="shelter_name" value='$shelter[shelter_name]'> <br>
                         <label for="adress">Adresse : </label> <input type="text" id="adress" name="adress" value='$shelter[adress]' > <br>
                         <label for="zip_code">Code postal : </label> <input type="text" id="zip_code" name="zip_code" value='$shelter[zip_code]'> <br>
@@ -96,11 +98,11 @@ function displaySheltersTable()
 
     foreach ($shelters as $shelter) {
         $card = <<<CARD
-                    <form id="formShowAnimal" class="formulaire" action="adminShelters" method="post">
+                    <form  class="formulaire" action="adminShelters" method="post">
                         <div id="info">
                             <div class="form-group">
                                 <label for="id_shelter">ID</label>
-                                <input type="text" id="id_shelter" name="id_shelter" value='$shelter[id_shelter]'>
+                                <input type="text" id="id_shelter" name="id_shelter" value=$shelter[id_shelter] readonly>
                             </div>
 
                             <div class="form-group">
@@ -156,14 +158,17 @@ if (!empty($_POST["saveShelter"])) {
     $infos = validData($_POST["infos"]);
 
     createShelter($shelter_name, $adress, $zip_code, $city, $phone, $infos);
+    $add = "Refuge ajouté";
 }
 
 if (!empty($_POST["deleteShelter"])) {
     deleteShelter($_POST["id_shelter"]);
+    $delete = "Refuge supprimé";
 }
 
 if (!empty($_POST["modifyShelter"])) {
     updateShelter($_POST["id_shelter"], $_POST["shelter_name"], $_POST["adress"], $_POST["zip_code"], $_POST["city"], $_POST["infos"], $_POST["phone"]);
+    $update = "Refuge modifié";
 }
 
 

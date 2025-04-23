@@ -45,18 +45,19 @@
                     </li>';
                 }
                 ?>
-                <li class="nav-item p-0">
-                    <a class="nav-link" href="adopter">Adopter</a>
-                </li>
+                <?php
+                if (!empty($_SESSION)){
+                    echo '<li class="nav-item p-0">
+                            <a class="nav-link" href="adopter">Adopter</a>
+                        </li>';
+                }
+                ?>
                 <li class="nav-item p-0">
                     <a class="nav-link" href="separer">Se séparer</a>
                 </li>
                 <li class="nav-item p-0">
                     <a class="nav-link" href="etablissements">Les établissements</a>
                 </li>
-                <!-- <li class="nav-item p-0">
-                    <a class="nav-link" href="don">Dons</a>
-                </li> -->
                 <li class="nav-item p-0">
                     <?php if (!empty($_SESSION)) {
                         echo '<a class="nav-link" href="deconnexion">Se deconnecter</a>';
