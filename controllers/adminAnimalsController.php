@@ -250,65 +250,21 @@ function modifyAnimal()
 
 
     foreach ($species as $specie) {
-
-        // if ($specie["species_name"] == $animals. ["species_name"]) {
-        // $speciesOption .= "<option value=" . $specie["id_species"] . " selected>" . $specie["species_name"] . "</option>";
-        // } else {
-
         $speciesOption .= "<option value=" . $specie["id_species"] . ">" . $specie["species_name"] . "</option>";
-        // }
     }
-    // foreach ($species as $specie) {
-    //     $selected = $specie["species_name"] === $animal["species_name"] ? "selected" : "";
-    //     $speciesOption .= "<option value=".$specie["id_species"]." $selected   >" . $specie["species_name"] . "</option>";
-    // }
+    
     foreach ($races as $race) {
-        // if ($race["race_name"] == $animal["race_name"]) {
-        //     $raceOption .= "<option value=" . $i . " selected>" . $race["race_name"] . "</option>";
-        //     $i++;
-        // } else {
-        //     $raceOption .= "<option value=" . $i . ">" . $race["race_name"] . "</option>";
-        //     $i++;
-        // }
         $raceOption .= "<option value=" . $race["id_race"] . ">" . $race["race_name"] . "</option>";
     }
     foreach ($shelters as $shelter) {
-        // if ($shelter["shelter_name"] == $animal["shelter_name"]) {
-        //     $shelterOption .= "<option value=" . $j . " selected>" . $shelter["shelter_name"] . "</option>";
-        //     $j++;
-        // } else {
-        //     $shelterOption .= "<option value=" . $j . ">" . $shelter["shelter_name"] . "</option>";
-        //     $j++;
-        // }
         $shelterOption .= "<option value=" . $shelter["id_shelter"] . ">" . $shelter["shelter_name"] . "</option>";
     }
     foreach ($animalSex as $value) {
-        // if ($value == $animal["sex"]) {
-        //     $sexOption .= "<option value=" . $value . " selected>" . $value . "</option>";
-        // } else {
-        //     $sexOption .= "<option value=" . $value . ">" . $value . "</option>";
-        // }
         $sexOption .= "<option value=" . $value . ">" . $value . "</option>";
     }
 
     foreach ($animals as $animal) {
-
-        // $card = <<<EOD
-        //         <form action="adminAnimals" method="post" class="formulaire">
-        //             <label for="id_animal">ID : </label> <input id="id_animal" name="id_animal" value=$animal[id_animal]> <br>
-        //             <label for="id_species" class="$animal[species_name]">Espèce : </label> <select id="id_species" name="id_species"> $speciesOption </select><br>
-        //             <label for="race" class="$animal[race_name]">Race : </label> <select id="id_race" name="id_race"> $raceOption </select> <br>
-        //             <label for="name">Nom : </label> <input type="text" id="name" name="name" value=$animal[name]> <br>
-        //             <label for="birthdate">Date de naissance : </label> <input type="date" id="birthdate" name="birthdate" value=$animal[birthdate]> <br>
-        //             <label for="sex" class="$animal[sex]">Sexe : </label> <select id="sex" name="sex"> $sexOption </select> <br>
-        //             <label for="shelter" class="$animal[shelter_name]">Etablissement : </label> <select id="id_shelter" name="id_shelter"> $shelterOption </select> <br>
-        //             <label for="picture">Photo : </label> <input type="file" id="picture" name="picture"> <br>
-        //             <div id="dsubmit">
-        //                 <input type="submit" value="Enregistrer" name="updateAnimal" id="updateAnimal">
-        //             </div>
-        //         </form>
-        //     EOD;
-
+        
         $card = '<form action="adminAnimals" method="post" class="formulaire">
                     <label for="id_animal">ID : </label> <input id="id_animal" name="id_animal" value=' . $animal["id_animal"] . '> <br>
                     <label for="id_species" class="$animal[species_name]">Espèce : </label> <select id="id_species" name="id_species">' . $speciesOption . '</select><br>
@@ -445,9 +401,7 @@ if (!empty($_POST["deleteAnimal"])) {
 }
 
 
-foreach ($animals as $animal) {
-    echo $animal["id_species"] . $animal["species_name"];
-}
+
 
 
 

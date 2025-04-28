@@ -21,7 +21,7 @@ function showAnimals()
 
         $card = <<<CARD
                     <div class="card p-2 $species ">
-                                <a href="information?id_animal=$animal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="photo_animal" width="300" height="225"></a>
+                                <a href="information?id_animal=$animal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="photo de l'animal à l'adoption" width="300" height="225"></a>
                                 <div class="card-body">
                                     <h5 class="card-title" id="animalName"> $animal[name] </h5>
                                     <p class="card-text" id="shelterName"> $animal[shelter_name] </p>
@@ -35,36 +35,6 @@ function showAnimals()
     }
 }
 
-// function showFilteredAnimals($id_shelter, $name, $chien, $chat, $race, $male, $femelle)
-// {
-//     $filteredAnimals = getFilteredAnimals($id_shelter, $name, $chien, $chat, $race, $male, $femelle);
-
-//     foreach ($filteredAnimals as $filteredAnimal) {
-//         $imgFolder = $filteredAnimal["id_species"] === 1 ? "dog" : "cat";
-//         $img = $filteredAnimal["picture"];
-//         $species = $filteredAnimal["id_species"] === 1 ? "dog" : "cat";
-//         $animalName = $filteredAnimal["name"];
-//         $shelterName = $filteredAnimal["shelter_name"];
-//         $raceName = $filteredAnimal["race_name"];
-
-//         $card = <<<CARD
-//                     <div class="card p-2 $species">
-//                                 <a href="information?id_animal=$filteredAnimal[id_animal]"><img src="/assets/img/$imgFolder/$img" class="card-img-top" alt="photo_animal"></a>
-//                                 <div class="card-body">
-//                                     <h5 class="card-title" id="animalName"> $filteredAnimal[name] </h5>
-//                                     <p class="card-text" id="shelterName"> $filteredAnimal[shelter_name] </p>
-//                                     <p class="card-text" id="animalRace"> Race : $filteredAnimal[race_name] </p>
-//                                 </div>
-//                             </div>
-//                 CARD;
-
-//         echo $card;
-//     }
-
-
-
-
-// }
 
 
 

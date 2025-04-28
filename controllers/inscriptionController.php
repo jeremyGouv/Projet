@@ -3,16 +3,34 @@ session_start();
 
 require_once "models/modelUser.php";
 
-//create a pattern for admin email
-$patternMail = "/^[a-zA-Z0-9._-]+@admin+\.[a-zA-Z]{2,3}$/";
+//create a pattern for mail, admin email, name
+$patternMailAdmin = "/^[a-zA-Z0-9._-]+@admin+\.[a-zA-Z]{2,3}$/";
+$patternName = "/^[a-zA-Z\s'-]+$/";
+$patternMail = "/^[a-zA-Z0-9._-]+@[a-z]+\.[a-zA-Z]{2,3}$/";
+
+$error = "";
 
 // Check if the subscription form has been submitted and if all required fields are filled.
 if (isset($_POST["subscribe"]) && !empty($_POST["firstname"]) && !empty($_POST["lastname"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
 
     // Sanitize and validate the form data.
-    $firstname = validData($_POST["firstname"]); 
-    $lastname = validData($_POST["lastname"]);   
-    $email = validData($_POST["email"]);        
+    if (preg_match($patternName, $_POST["firstname"])){
+        $firstname = validData($_POST["firstname"]); 
+    }else{
+        $error = "Prénom invalide";
+    }
+    if (preg_match($patternName, $_POST["lastname"])){
+        $lastname = validData($_POST["lastname"]);        
+    }else{
+        $error = "Nom invalide";
+        
+    }
+    if (preg_match($patternMail, $_POST["email"])){
+        $email = validData($_POST["email"]); 
+    }else{
+        $error = "Email invalide";
+    }
+               
     $password = validData($_POST["password"]);   
 
     // Hash the password.
@@ -26,7 +44,7 @@ if (isset($_POST["subscribe"]) && !empty($_POST["firstname"]) && !empty($_POST["
     if (!empty($firstname) && !empty($lastname) && !empty($validatedEmail) && !empty($hashedPassword) && preg_match("/^[a-zA-Z-' ]+$/", $firstname) && preg_match("/^[a-zA-Z-' ]+$/", $lastname)) {
 
         // Determine the user's role based on their email address.
-        if (preg_match($patternMail, $validatedEmail)) {
+        if (preg_match($patternMailAdmin, $validatedEmail)) {
             $id_role = 1; // Admin role.
         } else {
             $id_role = 2; // User role.

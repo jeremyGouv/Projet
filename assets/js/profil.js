@@ -1,5 +1,10 @@
 const deleteAccount = document.querySelector("#delete");
+const patternName = /^[a-zA-Z\s'-]+$/;
 const patternMail = /^[a-zA-Z0-9._-]+@[a-z]+\.[a-zA-Z]{2,3}$/;
+const patterPhone = /^[0-9]{10}$/;
+const patterZip = /^[0-9]{5}$/;
+
+
 let form = document.querySelector("form");
 let actionForm = "";
 let lastname = document.querySelector("#lastname");
@@ -34,9 +39,25 @@ zip_code.addEventListener("keydown", (e)=>{
         e.preventDefault(); 
     }
 });
-submit.addEventListener("click", (e)=>{    
+submit.addEventListener("click", (e)=>{
+    if (patternName.test(lastname.value) === false) {
+        alert("erreur de format de nom.");
+        e.preventDefault();
+    }
+    if (patternName.test(firstname.value) === false) {
+        alert("erreur de format de prénom.");
+        e.preventDefault();
+    }    
     if(patternMail.test(email.value) === false){
         alert("erreur de format d'email.");
+        e.preventDefault(); 
+    }
+    if(patternPhone.test(phone.value) === false){
+        alert("erreur de format de numéro de téléphone.");
+        e.preventDefault(); 
+    }
+    if(patternMail.test(zip_code.value) === false){
+        alert("erreur de format de code postal.");
         e.preventDefault(); 
     }
 });

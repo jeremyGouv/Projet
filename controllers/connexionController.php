@@ -3,13 +3,16 @@ session_start();
 
 require_once "models/modelUser.php";
 
+$patternMail = "/^[a-zA-Z0-9._-]+@[a-z]+\.[a-zA-Z]{2,3}$/";
 $error = "";
 
 // Check if the form has been submitted (if $_POST is not empty).
 if (!empty($_POST)) {
 
     // Data cleaning.
-    $email = validData($_POST["mail"]);
+    if (preg_match($patternMail, $_POST["mail"])){
+        $email = validData($_POST["mail"]);
+    }
     $password = validData($_POST["password"]);
 
     // Sanitize and validate the email to remove illegal characters.

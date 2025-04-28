@@ -22,7 +22,7 @@
         <div class="container col-lg-3">
             <div class="formulaire">
                 <h1>Connexion</h1>
-                <div id="error"> <?= $error; ?> </div>
+                <div id="message"> <?= $error; ?> </div>
                 <form name="connexion" id="connexion" method="post" action="connexion">
                     <div>
                         <label for="mail">Email</label>

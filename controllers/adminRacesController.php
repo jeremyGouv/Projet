@@ -52,10 +52,7 @@ function displayRaces()
     $species = getAllSpecies();
 
     foreach ($races as $race) {
-        // foreach($species as $specie){
-        //     $selected = $specie["id_species"] == $race["id_species"] ? "selected" : "";
-        //     $option = "<option value=$specie[id_species] $selected > $specie[species_name] </option>";
-        // }
+        
 
         $card = <<<CARD
                     <form action="adminRaces" method="post" class="formulaire">
@@ -82,11 +79,7 @@ function displayRacesTable()
     $species = getAllSpecies();
 
     foreach ($races as $race) {
-        // foreach($species as $specie){
-        //     $selected = $specie["id_species"] == $race["id_species"] ? "selected" : "";
-        //     $option = "<option value=$specie[id_species] $selected > $specie[species_name] </option>";
-        // }
-
+    
         $card = <<<CARD
                     <form action="adminRaces" method="post" class="formulaire" id="updateTable">
                         <label for="id_race">ID : </label> <input type="text" id="id_race" name="id_race" value='$race[id_race]' readonly> <br>

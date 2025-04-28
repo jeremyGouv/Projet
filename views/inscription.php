@@ -18,6 +18,7 @@
         <div class="container col-lg-10 p-0">
             <div class="formulaire">
                 <h1>Inscrivez-vous</h1>
+                <div id="message"> <?= $error; ?> </div>
                 <p>Pour créer un profil, veuillez vous inscrire.</p>
                 <form name="inscription" id="inscription" method="post" action="inscription">
                     <div id="dlastname">
